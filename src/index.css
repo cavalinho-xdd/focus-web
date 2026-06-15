@@ -46,6 +46,8 @@
   left: -10%;
   width: 60vw;
   height: 60vw;
+  min-width: 500px;
+  min-height: 500px;
   border-radius: 50%;
   background: radial-gradient(circle, var(--color-focus-primary) 0%, transparent 60%);
   filter: blur(100px);
@@ -60,6 +62,8 @@
   right: -10%;
   width: 70vw;
   height: 70vw;
+  min-width: 600px;
+  min-height: 600px;
   border-radius: 50%;
   background: radial-gradient(circle, var(--color-focus-secondary) 0%, transparent 60%);
   filter: blur(100px);
