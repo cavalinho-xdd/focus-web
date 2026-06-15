@@ -74,7 +74,7 @@ export default function Home() {
             transition={{ delay: initialLoad ? 3.2 : 0, duration: initialLoad ? 1.5 : 0 }}
             className="mb-6 md:mb-12"
           >
-            <h1 className="text-6xl md:text-[9rem] font-black tracking-tighter leading-none mb-4 flex flex-col">
+            <h1 className="text-5xl md:text-[9rem] font-black tracking-tighter leading-none mb-4 flex flex-col">
               <span className="text-white">Earn your</span>
               <span className="text-gradient drop-shadow-2xl">focus.</span>
             </h1>

@@ -95,7 +95,7 @@ export default function AppDemo() {
 
   return (
     <div className="w-full max-w-2xl mx-auto my-32">
-      <div className="relative w-full h-[450px] bg-white/[0.02] backdrop-blur-xl border border-white/10 rounded-[2rem] shadow-[0_0_50px_rgba(139,92,246,0.1)] overflow-hidden flex flex-col p-8 md:p-12">
+      <div className="relative w-full h-[450px] bg-white/[0.02] backdrop-blur-xl border border-white/10 rounded-[2rem] shadow-[0_0_50px_rgba(139,92,246,0.1)] overflow-hidden flex flex-col p-6 md:p-12">
         
         {/* Abstract top glow */}
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-focus-primary/50 to-transparent" />
@@ -121,7 +121,7 @@ export default function AppDemo() {
                 className="w-full flex flex-col items-center"
               >
                 <div className="text-gray-400 mb-6 text-xl md:text-2xl font-light">{t('demo.question')}</div>
-                <div className="text-4xl md:text-5xl font-black text-center w-full max-w-lg mx-auto pb-4">
+                <div className="text-3xl md:text-5xl font-black text-center w-full max-w-lg mx-auto pb-4">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
                     {typedGoal}
                   </span>
@@ -201,7 +201,7 @@ export default function AppDemo() {
                       <div className="w-10 h-10 rounded-2xl bg-focus-primary/20 border border-focus-primary/30 flex items-center justify-center shrink-0">
                         <Brain className="w-5 h-5 text-focus-primary" />
                       </div>
-                      <div className="bg-white/5 border border-white/5 rounded-3xl rounded-tl-sm p-5 text-gray-300 text-lg">
+                      <div className="bg-white/5 border border-white/5 rounded-3xl rounded-tl-sm p-4 md:p-5 text-gray-300 text-base md:text-lg">
                         {t('demo.aiAsk')} <span className="text-white font-semibold">{goalText}</span>?
                       </div>
                     </motion.div>
@@ -218,7 +218,7 @@ export default function AppDemo() {
                       <div className="w-10 h-10 rounded-2xl bg-white/10 flex items-center justify-center shrink-0">
                         <User className="w-5 h-5 text-white" />
                       </div>
-                      <div className="bg-gradient-to-br from-focus-primary/30 to-focus-secondary/30 border border-focus-primary/50 shadow-[0_0_20px_rgba(236,72,153,0.2)] rounded-3xl rounded-tr-sm p-5 text-white text-lg">
+                      <div className="bg-gradient-to-br from-focus-primary/30 to-focus-secondary/30 border border-focus-primary/50 shadow-[0_0_20px_rgba(236,72,153,0.2)] rounded-3xl rounded-tr-sm p-4 md:p-5 text-white text-base md:text-lg">
                         {chatTyped}
                         {chatPhase === 1 && chatTyped.length < userText.length && (
                           <motion.span animate={{ opacity: [1, 0] }} transition={{ repeat: Infinity }} className="ml-1">|</motion.span>
@@ -238,11 +238,11 @@ export default function AppDemo() {
                       <div className="w-10 h-10 rounded-2xl bg-focus-primary/20 border border-focus-primary/30 flex items-center justify-center shrink-0">
                         <Brain className="w-5 h-5 text-focus-primary" />
                       </div>
-                      <div className="bg-gradient-to-r from-[#0B0A15] to-focus-primary/10 border border-focus-primary/20 rounded-3xl rounded-tl-sm p-5 text-white">
+                      <div className="bg-gradient-to-r from-[#0B0A15] to-focus-primary/10 border border-focus-primary/20 rounded-3xl rounded-tl-sm p-4 md:p-5 text-white">
                         <div className="flex items-center gap-2 text-green-400 font-black mb-2 tracking-wide uppercase text-sm">
                           <Zap className="w-4 h-4 fill-green-400" /> {t('demo.xpAwarded')}
                         </div>
-                        <span className="text-gray-300 text-lg">{t('demo.aiResponse')}</span>
+                        <span className="text-gray-300 text-base md:text-lg">{t('demo.aiResponse')}</span>
                       </div>
                     </motion.div>
                   )}

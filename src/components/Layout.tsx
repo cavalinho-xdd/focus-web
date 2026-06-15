@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion';
-import { Globe } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Globe, Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import AuroraIntro from './AuroraIntro';
@@ -7,6 +8,7 @@ import AuroraIntro from './AuroraIntro';
 export default function Layout() {
   const { t, i18n } = useTranslation();
   const location = useLocation();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleLanguage = () => {
     const nextLang = i18n.language.startsWith('en') ? 'cs' : 'en';
@@ -32,13 +34,14 @@ export default function Layout() {
       </motion.div>
       
       {/* Navigation */}
-      <nav className="fixed top-0 inset-x-0 p-6 flex justify-between items-center z-50">
-        <Link to="/" className="text-2xl font-bold tracking-tight hover:text-focus-primary transition-colors">
+      <nav className="fixed top-0 inset-x-0 p-4 md:p-6 flex justify-between items-center z-50">
+        <Link to="/" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold tracking-tight hover:text-focus-primary transition-colors">
           focus
         </Link>
         
-        <div className="flex items-center gap-6">
-          <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-300">
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-6">
+          <div className="flex items-center gap-6 text-sm font-medium text-gray-300">
             <Link 
               to="/" 
               className={`hover:text-white transition-colors ${location.pathname === '/' ? 'text-white' : ''}`}
@@ -72,7 +75,68 @@ export default function Layout() {
             </Link>
           </div>
         </div>
+
+        {/* Mobile Hamburger Button */}
+        <div className="md:hidden flex items-center gap-3">
+          <button 
+            onClick={toggleLanguage}
+            className="p-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all font-medium text-xs flex items-center gap-1"
+          >
+            <Globe className="w-3 h-3" />
+            {i18n.language.startsWith('en') ? 'EN' : 'CS'}
+          </button>
+          <button 
+            onClick={() => setMobileMenuOpen(true)}
+            className="p-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all"
+          >
+            <Menu className="w-6 h-6 text-white" />
+          </button>
+        </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 z-[60] bg-[#0B0A15]/90 backdrop-blur-2xl flex flex-col items-center justify-center"
+          >
+            <button 
+              onClick={() => setMobileMenuOpen(false)}
+              className="absolute top-6 right-4 p-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all"
+            >
+              <X className="w-6 h-6 text-white" />
+            </button>
+
+            <div className="flex flex-col items-center gap-8 text-2xl font-light">
+              <Link 
+                to="/" 
+                onClick={() => setMobileMenuOpen(false)}
+                className={`hover:text-focus-primary transition-colors ${location.pathname === '/' ? 'text-white font-medium' : 'text-gray-400'}`}
+              >
+                {t('nav.home')}
+              </Link>
+              <Link 
+                to="/about" 
+                onClick={() => setMobileMenuOpen(false)}
+                className={`hover:text-focus-primary transition-colors ${location.pathname === '/about' ? 'text-white font-medium' : 'text-gray-400'}`}
+              >
+                {t('nav.about')}
+              </Link>
+              <Link to="/download" onClick={() => setMobileMenuOpen(false)}>
+                <motion.button 
+                  whileTap={{ scale: 0.95 }}
+                  className="mt-4 px-8 py-3 rounded-full bg-focus-primary text-white font-bold text-lg shadow-[0_0_30px_rgba(236,72,153,0.3)]"
+                >
+                  {t('nav.download')}
+                </motion.button>
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Page Content */}
       <main>
@@ -80,7 +144,7 @@ export default function Layout() {
       </main>
 
       {/* CTA Footer shared across all pages */}
-      <section className="relative py-32 px-4 text-center z-10 overflow-hidden">
+      <section className="relative py-24 md:py-32 px-4 text-center z-10 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-focus-primary/10 to-transparent z-[-1]" />
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -88,7 +152,7 @@ export default function Layout() {
           viewport={{ once: true }}
           className="relative max-w-4xl mx-auto"
         >
-          <h2 className="text-5xl md:text-7xl font-bold mb-8">
+          <h2 className="text-4xl md:text-7xl font-bold mb-8">
             Ready to <span className="text-gradient">focus</span>?
           </h2>
           <Link to="/download">

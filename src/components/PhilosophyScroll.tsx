@@ -48,7 +48,7 @@ export default function PhilosophyScroll() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        className="text-2xl md:text-4xl font-light text-gray-300 leading-relaxed text-center max-w-3xl mx-auto"
+        className="text-xl md:text-4xl font-light text-gray-300 leading-relaxed text-center max-w-3xl mx-auto"
       >
         {t('manifest.p1')}
       </motion.div>
@@ -57,7 +57,7 @@ export default function PhilosophyScroll() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        className="text-2xl md:text-4xl font-light text-gray-400 leading-relaxed text-center max-w-3xl mx-auto"
+        className="text-xl md:text-4xl font-light text-gray-400 leading-relaxed text-center max-w-3xl mx-auto"
       >
         {t('manifest.p2')}
       </motion.div>
@@ -66,7 +66,7 @@ export default function PhilosophyScroll() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        className="text-2xl md:text-4xl font-light text-gray-200 leading-relaxed text-center max-w-3xl mx-auto mt-10"
+        className="text-xl md:text-4xl font-light text-gray-200 leading-relaxed text-center max-w-3xl mx-auto mt-10"
       >
         {t('manifest.p3')}
       </motion.div>
@@ -75,7 +75,7 @@ export default function PhilosophyScroll() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        className="text-3xl md:text-5xl font-medium text-white leading-tight text-center max-w-3xl mx-auto mt-10"
+        className="text-2xl md:text-5xl font-medium text-white leading-tight text-center max-w-3xl mx-auto mt-10"
       >
         {t('manifest.p4')}
       </motion.div>
