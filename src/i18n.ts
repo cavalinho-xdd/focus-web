@@ -106,6 +106,10 @@ const resources = {
         "winDesc": "If you see a blue \"Windows SmartScreen\", click on \"More info\" and then on the \"Run anyway\" button.",
         "macTitle": "macOS Installation:",
         "macDesc": "If your Mac says the application cannot be opened (unidentified developer), right-click (or two-finger tap) the app icon and select \"Open\"."
+      },
+      "downloadPage": {
+        "title": "Alpha Release",
+        "subtitle": "Focus is in active development. Try out the initial release on your platform."
       }
     }
   },
@@ -213,6 +217,10 @@ const resources = {
         "winDesc": "Pokud na vás vyskočí modrá obrazovka \"Windows SmartScreen\", klikněte na text \"Více informací\" (More info) a následně na tlačítko \"Přesto spustit\" (Run anyway).",
         "macTitle": "Při spuštění na macOS:",
         "macDesc": "Pokud vám Mac napíše, že aplikaci nelze otevřít (neznámý vývojář), klikněte na ikonku aplikace pravým tlačítkem (nebo dvěma prsty) a z nabídky vyberte \"Otevřít\" (Open)."
+      },
+      "downloadPage": {
+        "title": "Alfa Verze",
+        "subtitle": "Focus je v aktivním vývoji. Vyzkoušejte si prvotní verzi na vaší platformě."
       }
     }
   }

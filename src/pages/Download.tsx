@@ -1,46 +1,39 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Info, Download as DownloadIcon } from 'lucide-react';
-
-const WindowsIcon = () => (
-  <img src="https://cdn.simpleicons.org/windows/3b82f6" alt="Windows" className="w-12 h-12" />
-);
-
-const AppleIcon = () => (
-  <img src="https://cdn.simpleicons.org/apple/ffffff" alt="Apple" className="w-12 h-12" />
-);
-
-const LinuxIcon = () => (
-  <img src="https://cdn.simpleicons.org/linux/eab308" alt="Linux" className="w-12 h-12" />
-);
+import { WindowsIcon, AppleIcon, LinuxIcon } from '../components/OSIcons';
 
 const downloadLinks = [
   {
     os: "Windows",
     arch: "x64",
     type: ".exe",
-    icon: WindowsIcon,
+    Icon: WindowsIcon,
+    iconColor: "text-blue-400",
     url: "https://github.com/cavalinho-xdd/focus/releases/download/untagged-77904c4afeca59a9b578/Focus-Setup-1.0.1.exe"
   },
   {
     os: "macOS",
     arch: "Arm64",
     type: ".dmg",
-    icon: AppleIcon,
+    Icon: AppleIcon,
+    iconColor: "text-gray-200",
     url: "https://github.com/cavalinho-xdd/focus/releases/download/untagged-b1eb751664294d823e33/Focus-1.0.1-arm64.dmg"
   },
   {
     os: "Linux",
     arch: "Universal",
     type: ".AppImage",
-    icon: LinuxIcon,
+    Icon: LinuxIcon,
+    iconColor: "text-yellow-500",
     url: "https://github.com/cavalinho-xdd/focus/releases/download/untagged-b1eb751664294d823e33/Focus-1.0.1.AppImage"
   },
   {
     os: "Linux",
     arch: "Debian/Ubuntu",
     type: ".deb",
-    icon: LinuxIcon,
+    Icon: LinuxIcon,
+    iconColor: "text-yellow-500",
     url: "https://github.com/cavalinho-xdd/focus/releases/download/untagged-b1eb751664294d823e33/focus_1.0.1_amd64.deb"
   }
 ];
@@ -57,10 +50,10 @@ export default function Download() {
       >
         <div className="mb-16">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="text-gradient">Alpha Release</span>
+            <span className="text-gradient">{t('downloadPage.title')}</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-400 font-light mb-12 max-w-2xl mx-auto">
-            Focus is in active development. Try out the initial release on your platform.
+            {t('downloadPage.subtitle')}
           </p>
         </div>
 
@@ -77,7 +70,7 @@ export default function Download() {
             >
               <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="relative z-10 flex flex-col items-center">
-                <link.icon />
+                <link.Icon className={`w-12 h-12 ${link.iconColor}`} />
                 <h3 className="text-xl font-bold mt-6 mb-1 text-white">{link.os}</h3>
                 <p className="text-gray-400 text-sm mb-6">{link.arch}</p>
                 <div className="flex items-center gap-2 text-focus-primary font-bold text-sm bg-focus-primary/20 px-4 py-2 rounded-full border border-focus-primary/20 group-hover:bg-focus-primary group-hover:text-white transition-colors">
