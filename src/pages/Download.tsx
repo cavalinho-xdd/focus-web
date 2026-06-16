@@ -10,7 +10,7 @@ const downloadLinks = [
     type: ".exe",
     Icon: WindowsIcon,
     iconColor: "text-blue-400",
-    url: "https://github.com/cavalinho-xdd/focus/releases/download/untagged-77904c4afeca59a9b578/Focus-Setup-1.0.1.exe"
+    url: "https://github.com/cavalinho-xdd/focus/releases/download/v1.0.1-clean/Focus-Setup-1.0.1.exe"
   },
   {
     os: "macOS",
@@ -18,7 +18,7 @@ const downloadLinks = [
     type: ".dmg",
     Icon: AppleIcon,
     iconColor: "text-gray-200",
-    url: "https://github.com/cavalinho-xdd/focus/releases/download/untagged-b1eb751664294d823e33/Focus-1.0.1-arm64.dmg"
+    url: "https://github.com/cavalinho-xdd/focus/releases/download/v1.0.1/Focus-1.0.1-arm64.dmg"
   },
   {
     os: "Linux",
@@ -26,7 +26,7 @@ const downloadLinks = [
     type: ".AppImage",
     Icon: LinuxIcon,
     iconColor: "text-yellow-500",
-    url: "https://github.com/cavalinho-xdd/focus/releases/download/untagged-b1eb751664294d823e33/Focus-1.0.1.AppImage"
+    url: "https://github.com/cavalinho-xdd/focus/releases/download/v1.0.1/Focus-1.0.1.AppImage"
   },
   {
     os: "Linux",
@@ -34,7 +34,7 @@ const downloadLinks = [
     type: ".deb",
     Icon: LinuxIcon,
     iconColor: "text-yellow-500",
-    url: "https://github.com/cavalinho-xdd/focus/releases/download/untagged-b1eb751664294d823e33/focus_1.0.1_amd64.deb"
+    url: "https://github.com/cavalinho-xdd/focus/releases/download/v1.0.1/focus_1.0.1_amd64.deb"
   }
 ];
 
