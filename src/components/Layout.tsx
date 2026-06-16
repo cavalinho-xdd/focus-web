@@ -165,6 +165,13 @@ export default function Layout() {
             </motion.button>
           </Link>
         </motion.div>
+
+        {/* Footer Links */}
+        <div className="absolute bottom-6 inset-x-0 flex justify-center z-20">
+          <Link to="/privacy" className="text-sm text-gray-500 hover:text-focus-primary transition-colors">
+            {t('legal.privacyTitle', 'Privacy Policy')}
+          </Link>
+        </div>
       </section>
     </div>
   );

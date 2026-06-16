@@ -3,11 +3,12 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Target, Shield, Brain, ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import AppDemo from '../components/AppDemo';
+import ApiGuideModal from '../components/ApiGuideModal';
 
 // Global flag tracking if the user has already seen the initial app intro
 let isFirstLoad = true;
 
-const FeatureRow = ({ icon: Icon, title, desc, align = 'left' }: any) => {
+const FeatureRow = ({ icon: Icon, title, desc, align = 'left', children }: any) => {
   const isRight = align === 'right';
   
   return (
@@ -24,6 +25,7 @@ const FeatureRow = ({ icon: Icon, title, desc, align = 'left' }: any) => {
         <p className="text-xl md:text-2xl text-gray-400 font-light leading-relaxed max-w-xl">
           {desc}
         </p>
+        {children}
       </motion.div>
 
       {/* Graphic / Large Icon Column */}
@@ -53,6 +55,9 @@ export default function Home() {
 
   // Read the global flag only once when the component mounts
   const [initialLoad] = useState(isFirstLoad);
+  
+  // Modal state
+  const [isApiGuideOpen, setIsApiGuideOpen] = useState(false);
 
   useEffect(() => {
     // After the first render, mark the intro as played
@@ -129,9 +134,19 @@ export default function Home() {
             title={t('features.ai')}
             desc={t('features.aiDesc')}
             align="left"
-          />
+          >
+            <button
+              onClick={() => setIsApiGuideOpen(true)}
+              className="mt-6 px-8 py-4 bg-focus-primary/20 border border-focus-primary/50 text-white rounded-full font-bold shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:bg-focus-primary hover:text-white transition-all duration-300 flex items-center gap-3 w-fit"
+            >
+              <Target className="w-5 h-5" />
+              {t('apiGuide.button')}
+            </button>
+          </FeatureRow>
         </div>
       </section>
+
+      <ApiGuideModal isOpen={isApiGuideOpen} onClose={() => setIsApiGuideOpen(false)} />
 
       {/* App Core Loop Demonstration */}
       <section className="relative w-full z-20 py-20">

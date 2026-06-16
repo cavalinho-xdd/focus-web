@@ -3,6 +3,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
 import Download from './pages/Download';
+import Privacy from './pages/Privacy';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="download" element={<Download />} />
+          <Route path="privacy" element={<Privacy />} />
         </Route>
       </Routes>
     </BrowserRouter>
