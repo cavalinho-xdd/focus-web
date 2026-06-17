@@ -5,6 +5,7 @@
  * and context providers (PerformanceContext) for optimizing animations globally.
  */
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import ScrollToTop from './components/ScrollToTop';
 import Layout from './components/Layout';
 import Home from './pages/Home';
@@ -32,6 +33,7 @@ function App() {
         </Route>
         <Route path="/auth" element={<AuthPage />} />
       </Routes>
+      <Analytics />
     </BrowserRouter>
   );
 }
