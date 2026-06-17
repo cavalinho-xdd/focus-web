@@ -23,7 +23,10 @@ export default function AuthPage() {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       if (credential && credential.idToken) {
         setStatus('redirecting');
-        window.location.href = `aurora://auth?token=${credential.idToken}`;
+        window.location.href = `http://127.0.0.1:43210/auth?token=${credential.idToken}`;
+        
+        // Save token for manual fallback
+        (window as any).__fallbackToken = credential.idToken;
       } else {
         throw new Error("Nebyl získán platný token od Googlu.");
       }
@@ -89,7 +92,17 @@ export default function AuthPage() {
           <div className="text-green-400 py-4">
             <p className="font-bold mb-2">Authentication successful!</p>
             <p className="text-sm">Redirecting you back to the app...</p>
-            <p className="text-xs text-gray-500 mt-4">If nothing happens, <a href="#" onClick={() => window.location.reload()} className="underline hover:text-gray-300">try again</a>.</p>
+            <p className="text-xs text-gray-500 mt-4 mb-2">If nothing happens automatically:</p>
+            <button 
+              onClick={() => {
+                const token = (window as any).__fallbackToken;
+                if (token) window.location.href = `aurora://auth?token=${token}`;
+              }}
+              className="text-xs bg-white/10 hover:bg-white/20 text-white py-2 px-4 rounded-lg transition-colors mb-2"
+            >
+              Open Aurora App Manually
+            </button>
+            <p className="text-xs text-gray-600 mt-2"><a href="#" onClick={() => window.location.reload()} className="underline hover:text-gray-400">Restart login</a></p>
           </div>
         )}
 
