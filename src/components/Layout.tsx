@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Globe, Menu, X } from 'lucide-react';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import AuroraIntro from './AuroraIntro';
@@ -10,10 +10,18 @@ export default function Layout() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const toggleLanguage = () => {
-    const nextLang = i18n.language.startsWith('en') ? 'cs' : 'en';
-    i18n.changeLanguage(nextLang);
-    localStorage.setItem('focus-web-lang', nextLang);
+  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
+  const { scrollY } = useScroll();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setIsScrolled(latest > 50);
+  });
+
+  const changeLang = (lang: string) => {
+    i18n.changeLanguage(lang);
+    localStorage.setItem('focus-web-lang', lang);
+    setLangDropdownOpen(false);
   };
 
   return (
@@ -34,9 +42,19 @@ export default function Layout() {
       </motion.div>
       
       {/* Navigation */}
-      <nav className="fixed top-0 inset-x-0 p-4 md:p-6 flex justify-between items-center z-50">
+      <motion.nav 
+        className="fixed top-0 inset-x-0 flex justify-between items-center z-50"
+        initial={{ padding: '24px 24px', backgroundColor: 'rgba(11, 10, 21, 0)', backdropFilter: 'blur(0px)', borderBottom: '1px solid rgba(255,255,255,0)' }}
+        animate={{ 
+          padding: isScrolled ? '16px 24px' : '24px 24px',
+          backgroundColor: isScrolled ? 'rgba(11, 10, 21, 0.75)' : 'rgba(11, 10, 21, 0)',
+          backdropFilter: isScrolled ? 'blur(16px)' : 'blur(0px)',
+          borderBottom: isScrolled ? '1px solid rgba(255,255,255,0.05)' : '1px solid rgba(255,255,255,0)'
+        }}
+        transition={{ duration: 0.3 }}
+      >
         <Link to="/" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold tracking-tight hover:text-focus-primary transition-colors">
-          focus
+          aurora
         </Link>
         
         {/* Desktop Nav */}
@@ -57,13 +75,38 @@ export default function Layout() {
           </div>
 
           <div className="flex items-center gap-4">
-            <button 
-              onClick={toggleLanguage}
-              className="px-3 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all font-medium text-sm flex items-center gap-2"
-            >
-              <Globe className="w-4 h-4" />
-              {i18n.language.startsWith('en') ? 'EN' : 'CS'}
-            </button>
+            <div className="relative">
+              <button 
+                onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+                className="px-3 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all font-medium text-sm flex items-center gap-2"
+              >
+                {i18n.language.startsWith('en') ? '🇬🇧 EN' : '🇨🇿 CS'}
+              </button>
+              
+              <AnimatePresence>
+                {langDropdownOpen && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="absolute top-full right-0 mt-2 bg-[#0B0A15]/90 backdrop-blur-xl border border-white/10 rounded-2xl p-2 flex flex-col gap-1 min-w-[120px] shadow-2xl"
+                  >
+                    <button 
+                      onClick={() => changeLang('en')}
+                      className={`px-4 py-2 rounded-xl text-left text-sm transition-colors hover:bg-white/10 ${i18n.language.startsWith('en') ? 'text-focus-primary font-bold' : 'text-gray-300'}`}
+                    >
+                      🇬🇧 English
+                    </button>
+                    <button 
+                      onClick={() => changeLang('cs')}
+                      className={`px-4 py-2 rounded-xl text-left text-sm transition-colors hover:bg-white/10 ${i18n.language.startsWith('cs') ? 'text-focus-primary font-bold' : 'text-gray-300'}`}
+                    >
+                      🇨🇿 Čeština
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
             <Link to="/download">
               <motion.button 
                 whileHover={{ scale: 1.05 }}
@@ -79,10 +122,9 @@ export default function Layout() {
         {/* Mobile Hamburger Button */}
         <div className="md:hidden flex items-center gap-3">
           <button 
-            onClick={toggleLanguage}
+            onClick={() => changeLang(i18n.language.startsWith('en') ? 'cs' : 'en')}
             className="p-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all font-medium text-xs flex items-center gap-1"
           >
-            <Globe className="w-3 h-3" />
             {i18n.language.startsWith('en') ? 'EN' : 'CS'}
           </button>
           <button 
@@ -92,7 +134,7 @@ export default function Layout() {
             <Menu className="w-6 h-6 text-white" />
           </button>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
@@ -143,7 +185,7 @@ export default function Layout() {
         <Outlet />
       </main>
 
-      {/* CTA Footer shared across all pages */}
+      {/* CTA Section shared across all pages */}
       <section className="relative py-24 md:py-32 px-4 text-center z-10 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-focus-primary/10 to-transparent z-[-1]" />
         <motion.div
@@ -153,7 +195,7 @@ export default function Layout() {
           className="relative max-w-4xl mx-auto"
         >
           <h2 className="text-4xl md:text-7xl font-bold mb-8">
-            Ready to <span className="text-gradient">focus</span>?
+            Ready for <span className="text-gradient">aurora</span>?
           </h2>
           <Link to="/download">
             <motion.button 
@@ -165,14 +207,50 @@ export default function Layout() {
             </motion.button>
           </Link>
         </motion.div>
-
-        {/* Footer Links */}
-        <div className="absolute bottom-6 inset-x-0 flex justify-center z-20">
-          <Link to="/privacy" className="text-sm text-gray-500 hover:text-focus-primary transition-colors">
-            {t('legal.privacyTitle', 'Privacy Policy')}
-          </Link>
-        </div>
       </section>
+
+      {/* Full Footer */}
+      <footer className="relative pt-24 pb-12 px-4 md:px-8 z-10 border-t border-white/5 bg-[#07060A]">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-12 md:gap-8">
+          
+          {/* Brand Col */}
+          <div className="flex flex-col items-start gap-4 max-w-xs">
+            <Link to="/" className="text-3xl font-bold tracking-tight text-white hover:text-focus-primary transition-colors">
+              aurora
+            </Link>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              An application that doesn't just count down. It actively forces you to focus by blocking distractions mercilessly.
+            </p>
+          </div>
+
+          {/* Links Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-16">
+            <div className="flex flex-col gap-3">
+              <h4 className="text-white font-bold mb-2">Product</h4>
+              <Link to="/download" className="text-gray-400 hover:text-focus-primary text-sm transition-colors">Download</Link>
+              <Link to="/about" className="text-gray-400 hover:text-focus-primary text-sm transition-colors">About App</Link>
+            </div>
+            
+            <div className="flex flex-col gap-3">
+              <h4 className="text-white font-bold mb-2">Connect</h4>
+              <a href="https://github.com/cavalinho-xdd/focus" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-focus-primary text-sm transition-colors flex items-center gap-2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> GitHub
+              </a>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <h4 className="text-white font-bold mb-2">Legal</h4>
+              <Link to="/privacy" className="text-gray-400 hover:text-focus-primary text-sm transition-colors">Privacy Policy</Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="max-w-6xl mx-auto mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+          <p>© {new Date().getFullYear()} Aurora App. All rights reserved.</p>
+          <p>cavalinho-xdd</p>
+        </div>
+      </footer>
     </div>
   );
 }

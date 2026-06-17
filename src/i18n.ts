@@ -11,14 +11,14 @@ const resources = {
         "scroll": "Scroll to discover"
       },
       "hero": {
-        "subtitle": "\"Where attention goes, energy flows\""
+        "subtitle": "\"Light up your mind.\""
       },
       "demo": {
         "question": "What do you want to learn?",
         "goal": "Learn Rust lifetimes",
         "focusingOn": "Focusing on:",
         "evaluation": "AI Evaluation",
-        "aiAsk": "Focus session complete. What did you learn about",
+        "aiAsk": "Aurora session complete. What did you learn about",
         "userAnswer": "Borrow checker rules and memory safety.",
         "xpAwarded": "+50 XP",
         "aiResponse": "Excellent summary. Your conceptual understanding is expanding."
@@ -26,7 +26,7 @@ const resources = {
       "manifest": {
         "p1": "In today's fast-paced world, it's hard to stop and focus on what truly matters.",
         "p2": "Our minds constantly wander. We multitask. Branching out in a thousand directions.",
-        "p3": "Yet it should flow with absolute clarity. Like a wave of light in the dark.",
+        "p3": "Yet it should flow with absolute clarity. Like an aurora cutting through the dark.",
         "p4": "The first step is simply to start. That's why this app exists. To forcefully pull you out of the chaos and make you find that calm."
       },
       "features": {
@@ -41,7 +41,7 @@ const resources = {
         "aiDesc": "After the session, Google Gemini will test what you learned. Earn a rating and XP."
       },
       "cta": {
-        "title": "Enter the Flow.",
+        "title": "Awaken your mind.",
         "button": "Download AppImage"
       },
       "apiGuide": {
@@ -59,8 +59,8 @@ const resources = {
           "tooltip": "Ctrl+C (Copy)"
         },
         "step3": {
-          "title": "Step 3: Paste in Focus App",
-          "desc": "Open settings in Focus App and paste the code into the box. Done!",
+          "title": "Step 3: Paste in Aurora App",
+          "desc": "Open settings in Aurora App and paste the code into the box. Done!",
           "settings": "Settings",
           "apiKey": "Gemini API Key",
           "tip": "Tip: Use Ctrl+V (Paste)"
@@ -72,9 +72,9 @@ const resources = {
       "legal": {
         "privacyTitle": "Privacy Policy",
         "privacyEffective": "Effective Date: June 16, 2026",
-        "privacyIntro": "Welcome to Focus App! Your privacy is critically important to us. This Privacy Policy explains how we collect, use, and protect your personal data when you use our application.",
+        "privacyIntro": "Welcome to Aurora App! Your privacy is critically important to us. This Privacy Policy explains how we collect, use, and protect your personal data when you use our application.",
         "section1Title": "1. What Data We Collect",
-        "section1Desc": "When you use Focus App, we only collect the minimum amount of data required to provide you with a working application:",
+        "section1Desc": "When you use Aurora App, we only collect the minimum amount of data required to provide you with a working application:",
         "s1Item1": "Email Address:",
         "s1Item1Desc": "Used exclusively for account creation, login, password resets, and friend requests.",
         "s1Item2": "Nickname (Display Name):",
@@ -87,9 +87,9 @@ const resources = {
         "s2Item2": "API Keys:",
         "s2Item2Desc": "Your Gemini API Key is stored locally on your device. We do not have access to it.",
         "s2Item3": "Process Data (Blocker):",
-        "s2Item3Desc": "The list of applications running on your PC during a Focus session is processed locally by your computer and is never sent to our servers.",
+        "s2Item3Desc": "The list of applications running on your PC during an Aurora session is processed locally by your computer and is never sent to our servers.",
         "section3Title": "3. Third-Party Services",
-        "section3Desc": "Focus App relies on third-party services to function:",
+        "section3Desc": "Aurora App relies on third-party services to function:",
         "s3Item1": "Google Firebase:",
         "s3Item1Desc": "Used for authentication and database storage (leaderboards, friend lists).",
         "s3Item2": "Google Gemini API:",
@@ -101,7 +101,7 @@ const resources = {
       },
       "downloadWarning": {
         "title": "Installation Warning (Windows & Mac)",
-        "desc": "As Focus App is an independent project, it does not currently include expensive corporate \"Code Signing\" certificates. Your system might warn you upon first launch. The application is 100% safe and contains no malicious code.",
+        "desc": "As Aurora App is an independent project, it does not currently include expensive corporate \"Code Signing\" certificates. Your system might warn you upon first launch. The application is 100% safe and contains no malicious code.",
         "winTitle": "Windows Installation:",
         "winDesc": "If you see a blue \"Windows SmartScreen\", click on \"More info\" and then on the \"Run anyway\" button.",
         "macTitle": "macOS Installation:",
@@ -109,7 +109,7 @@ const resources = {
       },
       "downloadPage": {
         "title": "Alpha Release",
-        "subtitle": "Focus is in active development. Try out the initial release on your platform."
+        "subtitle": "Aurora is in active development. Try out the initial release on your platform."
       }
     }
   },
@@ -122,14 +122,14 @@ const resources = {
         "scroll": "Skrolujte pro objevení"
       },
       "hero": {
-        "subtitle": "\"Where attention goes, energy flows\""
+        "subtitle": "\"Light up your mind.\""
       },
       "demo": {
         "question": "Jaký je tvůj úkol?",
         "goal": "Naučit se Rust lifetimes",
         "focusingOn": "Soustředění na:",
         "evaluation": "AI Shrnutí",
-        "aiAsk": "Focus blok dokončen. Co ses naučil o tématu",
+        "aiAsk": "Aurora blok dokončen. Co ses naučil o tématu",
         "userAnswer": "Pravidla borrow checkeru a memory safety.",
         "xpAwarded": "+50 XP",
         "aiResponse": "Skvělé shrnutí. Tvé porozumění konceptu se rozšiřuje."
@@ -137,7 +137,7 @@ const resources = {
       "manifest": {
         "p1": "V dnešním zrychleném světě je těžké se zastavit a soustředit na to, co je opravdu důležité.",
         "p2": "Naše mysl neustále těká. Multitaskuje. Rozvětvuje se do tisíce směrů.",
-        "p3": "Přitom by měla plynout naprosto čistě. Jako vlna světla v temnotě.",
+        "p3": "Přitom by měla plynout naprosto čistě. Jako polární záře v temnotě.",
         "p4": "Prvním krokem je zkrátka začít. Proto vznikla tahle aplikace. Aby vás na sílu vytrhla z chaosu a donutila vás najít ten klid."
       },
       "features": {
@@ -152,7 +152,7 @@ const resources = {
         "aiDesc": "Po skončení se vás Google Gemini zeptá na to, co jste se učili. Získáte hodnocení a XP."
       },
       "cta": {
-        "title": "Vstupte do Flow.",
+        "title": "Probuďte svou mysl.",
         "button": "Stáhnout AppImage"
       },
       "apiGuide": {
@@ -170,8 +170,8 @@ const resources = {
           "tooltip": "Ctrl+C (Kopírovat)"
         },
         "step3": {
-          "title": "Krok 3: Vložení do Focus App",
-          "desc": "Otevři nastavení ve Focus App a vlož kód do políčka. Hotovo!",
+          "title": "Krok 3: Vložení do aplikace Aurora",
+          "desc": "Otevři nastavení v aplikaci Aurora a vlož kód do políčka. Hotovo!",
           "settings": "Nastavení (Settings)",
           "apiKey": "Gemini API Klíč",
           "tip": "Tip: Použij Ctrl+V (Vložit)"
@@ -183,9 +183,9 @@ const resources = {
       "legal": {
         "privacyTitle": "Zásady ochrany osobních údajů",
         "privacyEffective": "Datum účinnosti: 16. června 2026",
-        "privacyIntro": "Vítejte ve Focus App! Vaše soukromí je pro nás nesmírně důležité. Tyto Zásady vysvětlují, jak shromažďujeme, používáme a chráníme vaše osobní údaje při používání naší aplikace.",
+        "privacyIntro": "Vítejte v aplikaci Aurora! Vaše soukromí je pro nás nesmírně důležité. Tyto Zásady vysvětlují, jak shromažďujeme, používáme a chráníme vaše osobní údaje při používání naší aplikace.",
         "section1Title": "1. Jaká data shromažďujeme",
-        "section1Desc": "Při používání aplikace Focus App shromažďujeme pouze minimum dat potřebných pro fungování aplikace:",
+        "section1Desc": "Při používání aplikace Aurora shromažďujeme pouze minimum dat potřebných pro fungování aplikace:",
         "s1Item1": "E-mailová adresa:",
         "s1Item1Desc": "Slouží výhradně k vytvoření účtu, přihlášení, resetování hesla a žádostem o přátelství.",
         "s1Item2": "Přezdívka (Display Name):",
@@ -198,9 +198,9 @@ const resources = {
         "s2Item2": "API klíče:",
         "s2Item2Desc": "Váš klíč k Gemini API je uložen lokálně na vašem zařízení. Nemáme k němu přístup.",
         "s2Item3": "Procesní data (Blocker):",
-        "s2Item3Desc": "Seznam aplikací běžících na vašem počítači během Focus bloku je zpracováván lokálně a nikdy není odesílán na naše servery.",
+        "s2Item3Desc": "Seznam aplikací běžících na vašem počítači během Aurora bloku je zpracováván lokálně a nikdy není odesílán na naše servery.",
         "section3Title": "3. Služby třetích stran",
-        "section3Desc": "Focus App ke svému fungování využívá služby třetích stran:",
+        "section3Desc": "Aurora ke svému fungování využívá služby třetích stran:",
         "s3Item1": "Google Firebase:",
         "s3Item1Desc": "Slouží k ověřování a ukládání do databáze (žebříčky, seznamy přátel).",
         "s3Item2": "Google Gemini API:",
@@ -212,7 +212,7 @@ const resources = {
       },
       "downloadWarning": {
         "title": "Upozornění pro instalaci (Windows & Mac)",
-        "desc": "Jelikož je Focus App nezávislý projekt, neobsahuje zatím drahé korporátní \"Code Signing\" certifikáty. Váš systém vás může při prvním spuštění varovat. Aplikace je 100% bezpečná a neobsahuje žádný škodlivý kód.",
+        "desc": "Jelikož je Aurora nezávislý projekt, neobsahuje zatím drahé korporátní \"Code Signing\" certifikáty. Váš systém vás může při prvním spuštění varovat. Aplikace je 100% bezpečná a neobsahuje žádný škodlivý kód.",
         "winTitle": "Při instalaci na Windows:",
         "winDesc": "Pokud na vás vyskočí modrá obrazovka \"Windows SmartScreen\", klikněte na text \"Více informací\" (More info) a následně na tlačítko \"Přesto spustit\" (Run anyway).",
         "macTitle": "Při spuštění na macOS:",
@@ -220,7 +220,7 @@ const resources = {
       },
       "downloadPage": {
         "title": "Alfa Verze",
-        "subtitle": "Focus je v aktivním vývoji. Vyzkoušejte si prvotní verzi na vaší platformě."
+        "subtitle": "Aurora je v aktivním vývoji. Vyzkoušejte si prvotní verzi na vaší platformě."
       }
     }
   }

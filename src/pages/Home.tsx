@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Target, Shield, Brain, ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import AppDemo from '../components/AppDemo';
@@ -59,10 +59,20 @@ export default function Home() {
   // Modal state
   const [isApiGuideOpen, setIsApiGuideOpen] = useState(false);
 
+  // Rotating text state
+  const [wordIndex, setWordIndex] = useState(0);
+  const words = ["focused", "calm", "organized", "unstoppable"];
+
   useEffect(() => {
     // After the first render, mark the intro as played
     isFirstLoad = false;
-  }, []);
+
+    // Rotating word interval
+    const interval = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % words.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [words.length]);
 
   return (
     <>
@@ -79,12 +89,30 @@ export default function Home() {
             transition={{ delay: initialLoad ? 3.2 : 0, duration: initialLoad ? 1.5 : 0 }}
             className="mb-6 md:mb-12"
           >
-            <h1 className="text-5xl md:text-[9rem] font-black tracking-tighter leading-none mb-4 flex flex-col">
-              <span className="text-white">Earn your</span>
-              <span className="text-gradient drop-shadow-2xl">focus.</span>
+            <h1 className="text-[3.5rem] md:text-[5.5rem] lg:text-[7rem] font-black tracking-tighter leading-none mb-4 flex flex-col items-center overflow-hidden py-4">
+              <motion.div layout className="text-white flex flex-wrap items-center justify-center gap-x-3 md:gap-x-5 gap-y-2">
+                <motion.span layout>Stay</motion.span> 
+                <AnimatePresence mode="popLayout">
+                  <motion.span
+                    layout
+                    key={wordIndex}
+                    initial={{ y: 30, opacity: 0, filter: "blur(5px)" }}
+                    animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+                    exit={{ y: -30, opacity: 0, filter: "blur(5px)" }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    className="text-focus-primary inline-block"
+                  >
+                    {words[wordIndex]}
+                  </motion.span>
+                </AnimatePresence>
+                <motion.span layout>with</motion.span>
+              </motion.div>
+              <motion.span layout className="text-gradient drop-shadow-2xl mt-2 md:mt-0 text-[5.5rem] md:text-[9rem] lg:text-[11rem] leading-none">
+                aurora.
+              </motion.span>
             </h1>
-            <p className="text-xl md:text-3xl text-gray-400 font-light tracking-wide mt-8">
-              {t('hero.subtitle')}
+            <p className="text-xl md:text-3xl text-gray-400 font-light tracking-wide mt-6">
+              "Light up your mind."
             </p>
           </motion.div>
         </motion.div>
