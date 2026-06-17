@@ -1,4 +1,4 @@
-import { useEffect, useState, ReactNode, ElementType } from 'react';
+import { useEffect, useState, type ReactNode, type ElementType } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Target, Shield, Brain, ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
