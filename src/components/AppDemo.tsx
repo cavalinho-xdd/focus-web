@@ -44,7 +44,7 @@ export default function AppDemo() {
     } 
     else if (phase === 1) {
       // Fast timer countdown
-      let startTime = performance.now();
+      const startTime = performance.now();
       const duration = 2500; // 2.5 seconds to count down 25 minutes
 
       const updateTime = () => {
