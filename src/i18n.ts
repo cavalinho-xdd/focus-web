@@ -13,6 +13,18 @@ const resources = {
       "hero": {
         "subtitle": "\"Light up your mind.\""
       },
+      "aboutGallery": {
+        "title": "Designed for Focus",
+        "subtitle": "Take a look at the interface crafted to minimize distractions.",
+        "login": "Secure Login",
+        "loginDesc": "Your focus journey starts here. Clean, fast, and secure authentication.",
+        "dashboard": "Dashboard",
+        "dashboardDesc": "Track your progress, level up, and see your focus time at a glance.",
+        "timer": "Focus Phase",
+        "timerDesc": "A distraction-free timer that actively enforces your focus.",
+        "settings": "Settings",
+        "settingsDesc": "Configure your AI integration, app blocklist, and performance settings."
+      },
       "demo": {
         "question": "What do you want to learn?",
         "goal": "Learn Rust lifetimes",
@@ -123,6 +135,18 @@ const resources = {
       },
       "hero": {
         "subtitle": "\"Light up your mind.\""
+      },
+      "aboutGallery": {
+        "title": "Design pro soustředění",
+        "subtitle": "Podívejte se na rozhraní, které je navrženo k minimalizaci rozptylování.",
+        "login": "Bezpečné přihlášení",
+        "loginDesc": "Vaše cesta k soustředění začíná zde. Čisté, rychlé a bezpečné přihlášení.",
+        "dashboard": "Přehled",
+        "dashboardDesc": "Sledujte svůj pokrok, zvyšujte úroveň a mějte přehled o čase soustředění.",
+        "timer": "Fáze soustředění",
+        "timerDesc": "Časovač bez rušivých elementů, který aktivně vynucuje vaši pozornost.",
+        "settings": "Nastavení",
+        "settingsDesc": "Nakonfigurujte si AI integraci, seznam blokovaných aplikací a nastavení výkonu."
       },
       "demo": {
         "question": "Jaký je tvůj úkol?",

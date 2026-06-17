@@ -1,5 +1,6 @@
+/* eslint-disable prefer-const, @typescript-eslint/no-explicit-any */
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 interface SoftAuroraProps {
   speed?: number;
@@ -243,7 +244,7 @@ export default function SoftAurora({
     container.appendChild(gl.canvas);
 
     if (enableMouseInteraction) {
-      window.addEventListener('mousemove', handleMouseMove); // Changed to window to react globally!
+      window.addEventListener('mousemove', handleMouseMove);
       window.addEventListener('mouseleave', handleMouseLeave);
     }
 

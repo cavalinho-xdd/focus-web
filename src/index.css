@@ -74,3 +74,20 @@
   z-index: -1;
   pointer-events: none;
 }
+
+body.performance-mode .glass-card {
+  backdrop-filter: none;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.performance-mode .glow-border {
+  box-shadow: none;
+  border-color: rgba(139, 92, 246, 0.5);
+}
+
+body.performance-mode .ambient-blob-1,
+body.performance-mode .ambient-blob-2 {
+  filter: none;
+  animation: none;
+  opacity: 0.05;
+}

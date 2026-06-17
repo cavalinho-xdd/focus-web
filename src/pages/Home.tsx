@@ -1,39 +1,45 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, ReactNode, ElementType } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Target, Shield, Brain, ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import AppDemo from '../components/AppDemo';
 import ApiGuideModal from '../components/ApiGuideModal';
+import { usePerformanceMode } from '../components/PerformanceContext';
 
-// Global flag tracking if the user has already seen the initial app intro
 let isFirstLoad = true;
 
-const FeatureRow = ({ icon: Icon, title, desc, align = 'left', children }: any) => {
+interface FeatureRowProps {
+  icon: ElementType;
+  title: string;
+  desc: string;
+  align?: 'left' | 'right';
+  children?: ReactNode;
+}
+
+const FeatureRow = ({ icon: Icon, title, desc, align = 'left', children }: FeatureRowProps) => {
   const isRight = align === 'right';
   
   return (
-    <div className={`flex flex-col ${isRight ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 md:gap-24 py-24 border-b border-white/5 last:border-0 relative`}>
+    <div className={`flex flex-col ${isRight ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 md:gap-24 py-12 md:py-24 border-b border-white/5 last:border-0 relative`}>
       
-      {/* Text Column */}
       <motion.div 
         initial={{ opacity: 0, x: isRight ? 50 : -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        className="flex-1 space-y-6 z-10"
+        className="flex-1 space-y-6 z-10 text-center md:text-left"
       >
         <h3 className="text-4xl md:text-6xl font-bold tracking-tight">{title}</h3>
-        <p className="text-xl md:text-2xl text-gray-400 font-light leading-relaxed max-w-xl">
+        <p className="text-xl md:text-2xl text-gray-400 font-light leading-relaxed max-w-xl mx-auto md:mx-0">
           {desc}
         </p>
-        {children}
+        <div className="flex flex-col items-center md:items-start w-full">
+          {children}
+        </div>
       </motion.div>
 
-      {/* Graphic / Large Icon Column */}
       <div className="flex-1 hidden md:flex items-center justify-center relative w-full h-full">
-        {/* Background ambient glow behind the icon */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-focus-primary/15 rounded-full blur-3xl pointer-events-none" />
         
-        {/* Large Glassmorphic Icon */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -53,21 +59,17 @@ export default function Home() {
   const y = useTransform(scrollY, [0, 500], [0, 150]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
-  // Read the global flag only once when the component mounts
   const [initialLoad] = useState(isFirstLoad);
+  const { isPerformanceMode } = usePerformanceMode();
   
-  // Modal state
   const [isApiGuideOpen, setIsApiGuideOpen] = useState(false);
 
-  // Rotating text state
   const [wordIndex, setWordIndex] = useState(0);
   const words = ["focused", "calm", "organized", "unstoppable"];
 
   useEffect(() => {
-    // After the first render, mark the intro as played
     isFirstLoad = false;
 
-    // Rotating word interval
     const interval = setInterval(() => {
       setWordIndex((prev) => (prev + 1) % words.length);
     }, 3000);
@@ -76,13 +78,11 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero Section */}
       <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden pt-20">
         <motion.div 
           style={{ y, opacity }}
           className="text-center z-10 flex flex-col items-center max-w-5xl px-4 -translate-y-24 md:-translate-y-32"
         >
-          {/* Wrapper to delay the title fade-in until after line drawing & blobs ONLY on first load */}
           <motion.div
             initial={initialLoad ? { opacity: 0 } : { opacity: 1 }}
             animate={{ opacity: 1 }}
@@ -96,9 +96,9 @@ export default function Home() {
                   <motion.span
                     layout
                     key={wordIndex}
-                    initial={{ y: 30, opacity: 0, filter: "blur(5px)" }}
-                    animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-                    exit={{ y: -30, opacity: 0, filter: "blur(5px)" }}
+                    initial={{ y: 30, opacity: 0, filter: isPerformanceMode ? "none" : "blur(5px)" }}
+                    animate={{ y: 0, opacity: 1, filter: isPerformanceMode ? "none" : "blur(0px)" }}
+                    exit={{ y: -30, opacity: 0, filter: isPerformanceMode ? "none" : "blur(5px)" }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                     className="text-focus-primary inline-block"
                   >
@@ -107,7 +107,7 @@ export default function Home() {
                 </AnimatePresence>
                 <motion.span layout>with</motion.span>
               </motion.div>
-              <motion.span layout className="text-gradient drop-shadow-2xl mt-2 md:mt-0 text-[5.5rem] md:text-[9rem] lg:text-[11rem] leading-none">
+              <motion.span layout className={`text-gradient mt-2 md:mt-0 text-[4.5rem] sm:text-[5.5rem] md:text-[9rem] lg:text-[11rem] leading-none ${isPerformanceMode ? '' : 'drop-shadow-2xl'}`}>
                 aurora.
               </motion.span>
             </h1>
@@ -128,8 +128,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Features Showcase */}
-      <section className="relative min-h-screen py-32 px-4 md:px-16 max-w-7xl mx-auto z-10">
+      <section className="relative min-h-screen py-16 md:py-32 px-4 md:px-16 max-w-7xl mx-auto z-10">
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -176,7 +175,6 @@ export default function Home() {
 
       <ApiGuideModal isOpen={isApiGuideOpen} onClose={() => setIsApiGuideOpen(false)} />
 
-      {/* App Core Loop Demonstration */}
       <section className="relative w-full z-20 py-20">
         <AppDemo />
       </section>

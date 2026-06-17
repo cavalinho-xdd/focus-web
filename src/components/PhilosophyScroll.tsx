@@ -16,14 +16,14 @@ export default function PhilosophyScroll() {
   return (
     <section ref={containerRef} className="relative w-full max-w-5xl mx-auto px-6 py-32 md:py-48 z-10 flex flex-col gap-32 md:gap-48">
       
-      {/* Background SVG Line (The Thread) */}
+
       <div className="absolute inset-0 w-full h-full pointer-events-none -z-10">
         <svg 
           viewBox="0 0 100 100" 
           preserveAspectRatio="none" 
           className="w-full h-full overflow-visible"
         >
-          {/* Animated glowing line - REMOVED drop-shadow for massive performance boost */}
+
           <motion.path 
             d="M 50 0 L 20 8 L 80 15 L 15 22 L 85 30 L 30 38 L 50 45 C 80 50, 80 60, 50 65 C 20 70, 20 80, 50 85 C 80 90, 80 100, 50 100"
             fill="none"
@@ -43,7 +43,7 @@ export default function PhilosophyScroll() {
         </svg>
       </div>
 
-      {/* Paragraphs - Unified elegant typography */}
+
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -80,7 +80,7 @@ export default function PhilosophyScroll() {
         {t('manifest.p4')}
       </motion.div>
 
-      {/* Final ambient glow - Moved down to bleed into the next section instead of cutting off */}
+
       <motion.div 
         style={{ opacity: glowOpacity }}
         className="absolute -bottom-[300px] left-1/2 -translate-x-1/2 w-[150%] h-[600px] bg-[radial-gradient(circle_at_center,rgba(236,72,153,0.25)_0%,transparent_60%)] pointer-events-none -z-20"

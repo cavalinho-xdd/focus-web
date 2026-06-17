@@ -1,5 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+/**
+ * @file ApiGuideModal.tsx
+ * @description Educational modal providing users with instructions on configuring
+ * their personal Google Gemini API keys for the Hardcore Quiz feature.
+ */
 import { X, ExternalLink, Key, User, Settings, CheckCircle, ChevronRight, ChevronLeft } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -39,7 +44,7 @@ export default function ApiGuideModal({ isOpen, onClose }: ApiGuideModalProps) {
       desc: t('apiGuide.step2.desc'),
       visual: (
         <div className="w-full h-48 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center p-6 relative overflow-hidden">
-          {/* Mockup of Google AI Studio Button */}
+
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black p-4 flex flex-col">
             <div className="h-8 w-full border-b border-white/10 flex items-center mb-4">
               <div className="text-xs text-gray-500 font-mono">Google AI Studio</div>
@@ -50,7 +55,7 @@ export default function ApiGuideModal({ isOpen, onClose }: ApiGuideModalProps) {
                 Create API Key
               </button>
             </div>
-            {/* Mock tooltip */}
+
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -104,7 +109,7 @@ export default function ApiGuideModal({ isOpen, onClose }: ApiGuideModalProps) {
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop */}
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -113,7 +118,7 @@ export default function ApiGuideModal({ isOpen, onClose }: ApiGuideModalProps) {
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100]"
           />
 
-          {/* Modal Container */}
+
           <div className="fixed inset-0 pointer-events-none z-[101] flex items-center justify-center p-4">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -122,7 +127,7 @@ export default function ApiGuideModal({ isOpen, onClose }: ApiGuideModalProps) {
               transition={{ type: "spring", duration: 0.5, bounce: 0.2 }}
               className="w-full max-w-2xl bg-[#0F0D1B] border border-white/10 rounded-3xl shadow-2xl overflow-hidden pointer-events-auto relative"
             >
-              {/* Close Button */}
+
               <button 
                 onClick={onClose}
                 className="absolute top-4 right-4 p-2 text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-full transition-colors z-10"
@@ -130,7 +135,7 @@ export default function ApiGuideModal({ isOpen, onClose }: ApiGuideModalProps) {
                 <X className="w-5 h-5" />
               </button>
 
-              {/* Progress Bar */}
+
               <div className="w-full h-1 bg-white/5 flex">
                 {steps.map((_, idx) => (
                   <div 
@@ -140,14 +145,14 @@ export default function ApiGuideModal({ isOpen, onClose }: ApiGuideModalProps) {
                 ))}
               </div>
 
-              {/* Header */}
-              <div className="p-8 pb-4 text-center">
+
+              <div className="p-6 pb-2 md:p-8 md:pb-4 text-center">
                 <h2 className="text-2xl font-bold tracking-tight mb-2">{t('apiGuide.title')}</h2>
                 <p className="text-gray-400 text-sm">{t('apiGuide.subtitle')}</p>
               </div>
 
-              {/* Content Carousel */}
-              <div className="relative px-8 py-6 overflow-hidden">
+
+              <div className="relative px-4 py-4 md:px-8 md:py-6 overflow-hidden">
                 <AnimatePresence mode="wait" custom={currentStep}>
                   <motion.div
                     key={currentStep}
@@ -170,19 +175,19 @@ export default function ApiGuideModal({ isOpen, onClose }: ApiGuideModalProps) {
                       </div>
                     </div>
 
-                    {/* Visual Section */}
+
                     {steps[currentStep].visual}
 
                   </motion.div>
                 </AnimatePresence>
               </div>
 
-              {/* Footer Controls */}
-              <div className="px-8 py-6 bg-white/5 border-t border-white/5 flex justify-between items-center">
+
+              <div className="px-4 py-4 md:px-8 md:py-6 bg-white/5 border-t border-white/5 flex flex-wrap md:flex-nowrap justify-between items-center gap-4">
                 <button
                   onClick={prevStep}
                   disabled={currentStep === 0}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors ${currentStep === 0 ? 'text-gray-600 cursor-not-allowed' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+                  className={`flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base rounded-lg font-medium transition-colors ${currentStep === 0 ? 'text-gray-600 cursor-not-allowed' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
                 >
                   <ChevronLeft className="w-4 h-4" /> {t('apiGuide.back')}
                 </button>
@@ -199,14 +204,14 @@ export default function ApiGuideModal({ isOpen, onClose }: ApiGuideModalProps) {
                 {currentStep < steps.length - 1 ? (
                   <button
                     onClick={nextStep}
-                    className="flex items-center gap-2 px-6 py-2.5 bg-focus-primary hover:bg-focus-secondary text-white rounded-xl font-bold transition-all shadow-[0_0_15px_rgba(139,92,246,0.3)] hover:shadow-[0_0_25px_rgba(139,92,246,0.5)]"
+                    className="flex items-center gap-2 px-4 py-2 md:px-6 md:py-2.5 text-sm md:text-base bg-focus-primary hover:bg-focus-secondary text-white rounded-xl font-bold transition-all shadow-[0_0_15px_rgba(139,92,246,0.3)] hover:shadow-[0_0_25px_rgba(139,92,246,0.5)]"
                   >
                     {t('apiGuide.next')} <ChevronRight className="w-4 h-4" />
                   </button>
                 ) : (
                   <button
                     onClick={onClose}
-                    className="flex items-center gap-2 px-6 py-2.5 bg-green-500 hover:bg-green-400 text-white rounded-xl font-bold transition-all shadow-[0_0_15px_rgba(34,197,94,0.3)] hover:shadow-[0_0_25px_rgba(34,197,94,0.5)]"
+                    className="flex items-center gap-2 px-4 py-2 md:px-6 md:py-2.5 text-sm md:text-base bg-green-500 hover:bg-green-400 text-white rounded-xl font-bold transition-all shadow-[0_0_15px_rgba(34,197,94,0.3)] hover:shadow-[0_0_25px_rgba(34,197,94,0.5)]"
                   >
                     {t('apiGuide.done')} <CheckCircle className="w-4 h-4" />
                   </button>

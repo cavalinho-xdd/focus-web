@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Zap } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import AuroraIntro from './AuroraIntro';
+import { usePerformanceMode } from './PerformanceContext';
 
 export default function Layout() {
   const { t, i18n } = useTranslation();
@@ -13,6 +14,7 @@ export default function Layout() {
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
+  const { isPerformanceMode, togglePerformanceMode } = usePerformanceMode();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);
@@ -27,10 +29,10 @@ export default function Layout() {
   return (
     <div className="min-h-screen font-sans overflow-x-hidden">
       
-      {/* Aurora Intro Background shared across all pages */}
+
       <AuroraIntro />
 
-      {/* Background with Ambient Blobs shared across all pages */}
+
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -41,7 +43,7 @@ export default function Layout() {
         <div className="ambient-blob-2" />
       </motion.div>
       
-      {/* Navigation */}
+
       <motion.nav 
         className="fixed top-0 inset-x-0 flex justify-between items-center z-50"
         initial={{ padding: '24px 24px', backgroundColor: 'rgba(11, 10, 21, 0)', backdropFilter: 'blur(0px)', borderBottom: '1px solid rgba(255,255,255,0)' }}
@@ -57,7 +59,7 @@ export default function Layout() {
           aurora
         </Link>
         
-        {/* Desktop Nav */}
+
         <div className="hidden md:flex items-center gap-6">
           <div className="flex items-center gap-6 text-sm font-medium text-gray-300">
             <Link 
@@ -75,6 +77,13 @@ export default function Layout() {
           </div>
 
           <div className="flex items-center gap-4">
+            <button
+              onClick={togglePerformanceMode}
+              className={`p-2 rounded-full backdrop-blur-md border border-white/10 transition-all flex items-center justify-center ${isPerformanceMode ? 'bg-focus-primary/20 text-focus-primary' : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'}`}
+              title="Performance Mode"
+            >
+              <Zap className="w-5 h-5" />
+            </button>
             <div className="relative">
               <button 
                 onClick={() => setLangDropdownOpen(!langDropdownOpen)}
@@ -119,8 +128,14 @@ export default function Layout() {
           </div>
         </div>
 
-        {/* Mobile Hamburger Button */}
+
         <div className="md:hidden flex items-center gap-3">
+          <button
+            onClick={togglePerformanceMode}
+            className={`p-2 rounded-full backdrop-blur-md border border-white/10 transition-all flex items-center justify-center ${isPerformanceMode ? 'bg-focus-primary/20 text-focus-primary' : 'bg-white/5 text-gray-400'}`}
+          >
+            <Zap className="w-5 h-5" />
+          </button>
           <button 
             onClick={() => changeLang(i18n.language.startsWith('en') ? 'cs' : 'en')}
             className="p-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all font-medium text-xs flex items-center gap-1"
@@ -136,7 +151,7 @@ export default function Layout() {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu Overlay */}
+
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -180,12 +195,12 @@ export default function Layout() {
         )}
       </AnimatePresence>
 
-      {/* Page Content */}
+
       <main>
         <Outlet />
       </main>
 
-      {/* CTA Section shared across all pages */}
+
       <section className="relative py-24 md:py-32 px-4 text-center z-10 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-focus-primary/10 to-transparent z-[-1]" />
         <motion.div
@@ -209,11 +224,11 @@ export default function Layout() {
         </motion.div>
       </section>
 
-      {/* Full Footer */}
+
       <footer className="relative pt-24 pb-12 px-4 md:px-8 z-10 border-t border-white/5 bg-[#07060A]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-12 md:gap-8">
           
-          {/* Brand Col */}
+
           <div className="flex flex-col items-start gap-4 max-w-xs">
             <Link to="/" className="text-3xl font-bold tracking-tight text-white hover:text-focus-primary transition-colors">
               aurora
@@ -223,7 +238,7 @@ export default function Layout() {
             </p>
           </div>
 
-          {/* Links Grid */}
+
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-16">
             <div className="flex flex-col gap-3">
               <h4 className="text-white font-bold mb-2">Product</h4>
@@ -245,7 +260,7 @@ export default function Layout() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
+
         <div className="max-w-6xl mx-auto mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
           <p>© {new Date().getFullYear()} Aurora App. All rights reserved.</p>
           <p>cavalinho-xdd</p>

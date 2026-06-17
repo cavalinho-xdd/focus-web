@@ -1,13 +1,19 @@
+/* eslint-disable */
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Brain, User, Zap, Terminal } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { usePerformanceMode } from './PerformanceContext';
 
 export default function AppDemo() {
   const { t } = useTranslation();
-  const [phase, setPhase] = useState(0); // 0: Input, 1: Timer, 2: AI Evaluation
+  const [phase, setPhase] = useState(0);
+  const { isPerformanceMode } = usePerformanceMode();
 
-  // Variables for dynamic typing
+  const heavyBlur = isPerformanceMode ? "none" : "blur(10px)";
+  const noBlur = isPerformanceMode ? "none" : "blur(0px)";
+
+
   const goalText = t('demo.goal');
   const [typedGoal, setTypedGoal] = useState("");
 
@@ -28,7 +34,7 @@ export default function AppDemo() {
       setChatPhase(0);
       setChatTyped("");
 
-      // Typewriter effect for goal
+
       let i = 0;
       const interval = setInterval(() => {
         if (!active) return;
@@ -36,16 +42,16 @@ export default function AppDemo() {
         i++;
         if (i === goalText.length) {
           clearInterval(interval);
-          setTimeout(() => { if (active) setPhase(1); }, 1000); // Press enter after 1s
+          setTimeout(() => { if (active) setPhase(1); }, 1000);
         }
       }, 80);
 
       return () => { active = false; clearInterval(interval); };
     } 
     else if (phase === 1) {
-      // Fast timer countdown
+
       const startTime = performance.now();
-      const duration = 2500; // 2.5 seconds to count down 25 minutes
+      const duration = 2500;
 
       const updateTime = () => {
         if (!active) return;
@@ -68,8 +74,8 @@ export default function AppDemo() {
       return () => { active = false; };
     }
     else if (phase === 2) {
-      // Chat interaction
-      const t1 = setTimeout(() => { if (active) setChatPhase(1); }, 600); // AI asks
+
+      const t1 = setTimeout(() => { if (active) setChatPhase(1); }, 600);
 
       const t2 = setTimeout(() => {
         if (!active) return;
@@ -80,13 +86,13 @@ export default function AppDemo() {
           i++;
           if (i === userText.length) {
             clearInterval(interval);
-            setTimeout(() => { if (active) setChatPhase(2); }, 800); // AI responds
+            setTimeout(() => { if (active) setChatPhase(2); }, 800);
           }
         }, 50);
-      }, 1500); // User starts typing
+      }, 1500);
 
       const t3 = setTimeout(() => {
-        if (active) setPhase(0); // Loop back to start
+        if (active) setPhase(0);
       }, 7000);
 
       return () => { active = false; clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
@@ -97,11 +103,11 @@ export default function AppDemo() {
     <div className="w-full max-w-2xl mx-auto my-32">
       <div className="relative w-full h-[450px] bg-white/[0.02] backdrop-blur-xl border border-white/10 rounded-[2rem] shadow-[0_0_50px_rgba(139,92,246,0.1)] overflow-hidden flex flex-col p-6 md:p-12">
         
-        {/* Abstract top glow */}
+
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-focus-primary/50 to-transparent" />
         <div className="absolute -top-32 -left-32 w-64 h-64 bg-focus-primary/20 rounded-full blur-[100px]" />
         
-        {/* Minimal Window Header */}
+
         <div className="flex gap-2 items-center mb-10 absolute top-6 left-6">
           <div className="w-3 h-3 rounded-full bg-white/10" />
           <div className="w-3 h-3 rounded-full bg-white/10" />
@@ -116,7 +122,7 @@ export default function AppDemo() {
                 key="input" 
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
-                exit={{ opacity: 0, y: -20, filter: "blur(10px)" }} 
+                exit={{ opacity: 0, y: -20, filter: heavyBlur }} 
                 transition={{ duration: 0.5 }}
                 className="w-full flex flex-col items-center"
               >
@@ -137,9 +143,9 @@ export default function AppDemo() {
             {phase === 1 && (
               <motion.div 
                 key="timer" 
-                initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }} 
-                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }} 
-                exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }} 
+                initial={{ opacity: 0, scale: 0.9, filter: heavyBlur }} 
+                animate={{ opacity: 1, scale: 1, filter: noBlur }} 
+                exit={{ opacity: 0, scale: 1.1, filter: heavyBlur }} 
                 transition={{ duration: 0.5 }}
                 className="w-full flex flex-col items-center justify-center"
               >
@@ -181,9 +187,9 @@ export default function AppDemo() {
             {phase === 2 && (
               <motion.div 
                 key="chat" 
-                initial={{ opacity: 0, y: 20, filter: "blur(10px)" }} 
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} 
-                exit={{ opacity: 0, y: -20, filter: "blur(10px)" }} 
+                initial={{ opacity: 0, y: 20, filter: heavyBlur }} 
+                animate={{ opacity: 1, y: 0, filter: noBlur }} 
+                exit={{ opacity: 0, y: -20, filter: heavyBlur }} 
                 transition={{ duration: 0.5 }}
                 className="w-full h-full flex flex-col justify-end gap-6"
               >

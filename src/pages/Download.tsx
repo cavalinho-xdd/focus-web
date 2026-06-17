@@ -10,7 +10,7 @@ const downloadLinks = [
     type: ".exe",
     Icon: WindowsIcon,
     iconColor: "text-blue-400",
-    url: "https://github.com/cavalinho-xdd/aurora/releases/download/v1.0.9/Aurora-Setup-1.0.9.exe"
+    url: "https://github.com/cavalinho-xdd/aurora/releases/download/v1.0.10-alpha.0/Aurora-Setup-1.0.10-alpha.0.exe"
   },
   {
     os: "macOS",
@@ -18,7 +18,7 @@ const downloadLinks = [
     type: ".dmg",
     Icon: AppleIcon,
     iconColor: "text-gray-200",
-    url: "https://github.com/cavalinho-xdd/aurora/releases/download/v1.0.9/Aurora-1.0.9-arm64.dmg"
+    url: "https://github.com/cavalinho-xdd/aurora/releases/download/v1.0.10-alpha.0/Aurora-1.0.10-alpha.0-arm64.dmg"
   },
   {
     os: "Linux",
@@ -26,7 +26,7 @@ const downloadLinks = [
     type: ".AppImage",
     Icon: LinuxIcon,
     iconColor: "text-yellow-500",
-    url: "https://github.com/cavalinho-xdd/aurora/releases/download/v1.0.9/Aurora-1.0.9.AppImage"
+    url: "https://github.com/cavalinho-xdd/aurora/releases/download/v1.0.10-alpha.0/Aurora-1.0.10-alpha.0.AppImage"
   },
   {
     os: "Linux",
@@ -34,7 +34,7 @@ const downloadLinks = [
     type: ".deb",
     Icon: LinuxIcon,
     iconColor: "text-yellow-500",
-    url: "https://github.com/cavalinho-xdd/aurora/releases/download/v1.0.9/aurora_1.0.9_amd64.deb"
+    url: "https://github.com/cavalinho-xdd/aurora/releases/download/v1.0.10-alpha.0/aurora_1.0.10-alpha.0_amd64.deb"
   }
 ];
 
@@ -81,7 +81,7 @@ export default function Download() {
           ))}
         </div>
 
-        {/* Installation Warning */}
+
         <div className="bg-focus-primary/10 border border-focus-primary/20 rounded-2xl p-6 md:p-8 backdrop-blur-md text-left shadow-[0_0_30px_rgba(139,92,246,0.1)] max-w-3xl mx-auto">
           <div className="flex items-center gap-3 mb-4">
             <Info className="w-6 h-6 text-focus-primary" />
