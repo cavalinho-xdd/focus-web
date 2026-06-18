@@ -5,12 +5,14 @@ import './i18n'
 import App from './App.tsx'
 import { PerformanceProvider } from './components/PerformanceContext.tsx'
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <PerformanceProvider>
       <App />
       <Analytics />
+      <SpeedInsights />
     </PerformanceProvider>
   </StrictMode>,
 )
