@@ -124,6 +124,8 @@ const resources = {
         "subtitle": "Aurora is in active development. Try out the initial release on your platform."
       },
       "footer": {
+        "description": "An application that doesn't just count down. It actively forces you to focus by blocking distractions mercilessly.",
+        "ready": "Ready for",
         "supportTitle": "Support Aurora's Development",
         "supportDesc": "Help cover the costs of the Apple Developer Program and Microsoft signing certificates. Without them, the app cannot be distributed natively without security warnings.",
         "supportBtn": "Support on Ko-fi",
@@ -256,6 +258,8 @@ const resources = {
         "subtitle": "Aurora je v aktivním vývoji. Vyzkoušejte si prvotní verzi na vaší platformě."
       },
       "footer": {
+        "description": "Aplikace, která se nespokojí jen s odpočítáváním. Aktivně vás nutí soustředit se nemilosrdným blokováním všeho, co vás rozptyluje.",
+        "ready": "Jste připraveni na",
         "supportTitle": "Podpořte vývoj Aurory",
         "supportDesc": "Pomozte pokrýt náklady na Apple Developer Program a podepisovací certifikáty od Microsoftu. Bez nich nelze aplikaci distribuovat nativně bez bezpečnostních varování.",
         "supportBtn": "Podpořit na Ko-fi",

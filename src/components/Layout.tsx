@@ -210,7 +210,7 @@ export default function Layout() {
           className="relative max-w-4xl mx-auto"
         >
           <h2 className="text-4xl md:text-7xl font-bold mb-8">
-            Ready for <span className="text-gradient">aurora</span>?
+            {t('footer.ready', 'Ready for')} <span className="text-gradient">aurora</span>?
           </h2>
           <Link to="/download">
             <motion.button 
@@ -234,7 +234,7 @@ export default function Layout() {
               aurora
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
-              An application that doesn't just count down. It actively forces you to focus by blocking distractions mercilessly.
+              {t('footer.description', "An application that doesn't just count down. It actively forces you to focus by blocking distractions mercilessly.")}
             </p>
           </div>
 
