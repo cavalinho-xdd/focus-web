@@ -1,73 +1,47 @@
-# React + TypeScript + Vite
+# Aurora App - Official Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the official landing page for **Aurora**, the hardcore focus companion. 
 
-Currently, two official plugins are available:
+## About Aurora
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Aurora is a productivity application that doesn't just count down a timer—it actively forces you to focus by mercilessly blocking distractions. 
 
-## React Compiler
+**Key Features:**
+- 🛡️ **System Blocker**: Instantly terminates distracting applications (like Discord or games) at the system level.
+- 🔒 **Hardcore Mode**: When activated, the application cannot be closed by any means until the focus phase is complete.
+- 🧠 **AI Evaluation**: Integrates with Google Gemini. After a session, the AI will test you on what you learned, awarding a rating and XP.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+This landing page is built with modern web technologies:
+- **React** + **Vite** for fast development and rendering.
+- **Tailwind CSS** for utility-first styling and responsive design.
+- **Framer Motion** for smooth, dynamic animations and micro-interactions.
+- **i18next** for internationalization (fully translated into English & Czech).
+- **Lucide React** for beautiful, consistent iconography.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+To run the website locally:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+4. Build for production:
+   ```bash
+   npm run build
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Dynamic Downloads
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The website automatically pulls the latest alpha/beta release binaries (`.exe`, `.dmg`, `.AppImage`, `.deb`) from the main Aurora GitHub repository via the GitHub API. No manual website deployment is needed when a new app version is released.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## License
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+All rights reserved.
