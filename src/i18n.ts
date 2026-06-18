@@ -259,7 +259,6 @@ const resources = {
       },
       "footer": {
         "description": "Aplikace, která se nespokojí jen s odpočítáváním. Aktivně vás nutí soustředit se nemilosrdným blokováním všeho, co vás rozptyluje.",
-        "ready": "Jste připraveni na",
         "supportTitle": "Podpořte vývoj Aurory",
         "supportDesc": "Pomozte pokrýt náklady na Apple Developer Program a podepisovací certifikáty od Microsoftu. Bez nich nelze aplikaci distribuovat nativně bez bezpečnostních varování.",
         "supportBtn": "Podpořit na Ko-fi",
