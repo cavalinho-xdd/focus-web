@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X, Zap, Heart, Coffee } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import AuroraIntro from './AuroraIntro';
@@ -241,28 +241,50 @@ export default function Layout() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-16">
             <div className="flex flex-col gap-3">
-              <h4 className="text-white font-bold mb-2">Product</h4>
-              <Link to="/download" className="text-gray-400 hover:text-focus-primary text-sm transition-colors">Download</Link>
-              <Link to="/about" className="text-gray-400 hover:text-focus-primary text-sm transition-colors">About App</Link>
+              <h4 className="text-white font-bold mb-2">{t('footer.product', 'Product')}</h4>
+              <Link to="/download" className="text-gray-400 hover:text-focus-primary text-sm transition-colors">{t('nav.download')}</Link>
+              <Link to="/about" className="text-gray-400 hover:text-focus-primary text-sm transition-colors">{t('nav.about')}</Link>
             </div>
             
             <div className="flex flex-col gap-3">
-              <h4 className="text-white font-bold mb-2">Connect</h4>
+              <h4 className="text-white font-bold mb-2">{t('footer.connect', 'Connect')}</h4>
               <a href="https://github.com/cavalinho-xdd/focus" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-focus-primary text-sm transition-colors flex items-center gap-2">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> GitHub
               </a>
             </div>
 
             <div className="flex flex-col gap-3">
-              <h4 className="text-white font-bold mb-2">Legal</h4>
-              <Link to="/privacy" className="text-gray-400 hover:text-focus-primary text-sm transition-colors">Privacy Policy</Link>
+              <h4 className="text-white font-bold mb-2">{t('footer.legal', 'Legal')}</h4>
+              <Link to="/privacy" className="text-gray-400 hover:text-focus-primary text-sm transition-colors">{t('legal.privacyTitle', 'Privacy Policy')}</Link>
             </div>
           </div>
         </div>
 
+        <div className="max-w-6xl mx-auto mt-16 p-6 md:p-8 rounded-3xl bg-gradient-to-r from-white/5 to-white/[0.02] border border-white/10 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden group hover:border-focus-primary/30 transition-colors">
+          <div className="absolute inset-0 bg-gradient-to-r from-focus-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="flex flex-col gap-3 max-w-2xl relative z-10">
+            <h4 className="text-white font-bold flex items-center gap-2 text-lg">
+              <Heart className="w-5 h-5 text-focus-primary fill-focus-primary/20" />
+              {t('footer.supportTitle', "Support Aurora's Development")}
+            </h4>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              {t('footer.supportDesc')}
+            </p>
+          </div>
+          <a 
+            href="https://ko-fi.com/cavalinhoxdd" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="relative z-10 px-8 py-3 rounded-full bg-focus-primary/10 hover:bg-focus-primary/20 border border-focus-primary/30 text-focus-primary font-bold text-sm transition-all whitespace-nowrap flex items-center gap-2 shadow-[0_0_20px_rgba(236,72,153,0.1)] hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]"
+          >
+            <Coffee className="w-4 h-4" />
+            {t('footer.supportBtn', 'Support on Ko-fi')}
+          </a>
+        </div>
 
-        <div className="max-w-6xl mx-auto mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} Aurora App. All rights reserved.</p>
+
+        <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+          <p>© {new Date().getFullYear()} Aurora App. {t('footer.rights', 'All rights reserved.')}</p>
           <p>cavalinho-xdd</p>
         </div>
       </footer>

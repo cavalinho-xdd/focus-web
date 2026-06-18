@@ -122,6 +122,15 @@ const resources = {
       "downloadPage": {
         "title": "Alpha Release",
         "subtitle": "Aurora is in active development. Try out the initial release on your platform."
+      },
+      "footer": {
+        "supportTitle": "Support Aurora's Development",
+        "supportDesc": "Help cover the costs of the Apple Developer Program and Microsoft signing certificates. Without them, the app cannot be distributed natively without security warnings.",
+        "supportBtn": "Support on Ko-fi",
+        "product": "Product",
+        "connect": "Connect",
+        "legal": "Legal",
+        "rights": "All rights reserved."
       }
     }
   },
@@ -245,6 +254,15 @@ const resources = {
       "downloadPage": {
         "title": "Alfa Verze",
         "subtitle": "Aurora je v aktivním vývoji. Vyzkoušejte si prvotní verzi na vaší platformě."
+      },
+      "footer": {
+        "supportTitle": "Podpořte vývoj Aurory",
+        "supportDesc": "Pomozte pokrýt náklady na Apple Developer Program a podepisovací certifikáty od Microsoftu. Bez nich nelze aplikaci distribuovat nativně bez bezpečnostních varování.",
+        "supportBtn": "Podpořit na Ko-fi",
+        "product": "Produkt",
+        "connect": "Odkazy",
+        "legal": "Právní",
+        "rights": "Všechna práva vyhrazena."
       }
     }
   }
