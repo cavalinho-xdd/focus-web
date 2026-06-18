@@ -19,6 +19,9 @@ export default function AuthPage() {
   const handleGoogleAuth = async () => {
     setStatus('authenticating');
     try {
+      if (!auth || !googleProvider) {
+        throw new Error("Firebase Authentication is not configured. Missing API keys.");
+      }
       const result = await signInWithPopup(auth, googleProvider);
       const credential = GoogleAuthProvider.credentialFromResult(result);
       if (credential && credential.idToken) {
