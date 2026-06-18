@@ -256,6 +256,7 @@ export default function Layout() {
             <div className="flex flex-col gap-3">
               <h4 className="text-white font-bold mb-2">{t('footer.legal', 'Legal')}</h4>
               <Link to="/privacy" className="text-gray-400 hover:text-focus-primary text-sm transition-colors">{t('legal.privacyTitle', 'Privacy Policy')}</Link>
+              <Link to="/terms" className="text-gray-400 hover:text-focus-primary text-sm transition-colors">{t('legal.termsTitle', 'Terms of Service')}</Link>
             </div>
           </div>
         </div>

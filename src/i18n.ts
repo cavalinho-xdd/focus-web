@@ -82,6 +82,15 @@ const resources = {
         "done": "Got it, let's go!"
       },
       "legal": {
+        "termsTitle": "Terms of Service",
+        "termsEffective": "Effective Date: June 18, 2026",
+        "termsIntro": "By downloading and using Aurora App, you agree to these Terms of Service. Aurora is a productivity tool designed to enforce focus.",
+        "tSection1Title": "1. Assumption of Risk",
+        "tSection1Desc": "Aurora App uses system-level blocking ('System Blocker') and a 'Hardcore Mode' to terminate distracting applications and prevent you from closing the app during a focus phase. YOU EXPRESSLY UNDERSTAND AND AGREE THAT YOUR USE OF AURORA APP IS AT YOUR SOLE RISK.",
+        "tSection2Title": "2. Limitation of Liability",
+        "tSection2Desc": "In no event shall the developer of Aurora App be liable for any lost data, unsaved work, lost profits, or any indirect, incidental, or consequential damages arising out of your use or inability to use the application.",
+        "tSection3Title": "3. Fair Use & Third-Party APIs",
+        "tSection3Desc": "You agree not to abuse or reverse-engineer the application. Features that rely on third-party APIs (such as Google Gemini) require you to comply with their respective Terms of Service.",
         "privacyTitle": "Privacy Policy",
         "privacyEffective": "Effective Date: June 16, 2026",
         "privacyIntro": "Welcome to Aurora App! Your privacy is critically important to us. This Privacy Policy explains how we collect, use, and protect your personal data when you use our application.",
@@ -216,6 +225,15 @@ const resources = {
         "done": "Rozumím, jdu na to!"
       },
       "legal": {
+        "termsTitle": "Podmínky použití (EULA)",
+        "termsEffective": "Datum účinnosti: 18. června 2026",
+        "termsIntro": "Stažením a používáním aplikace Aurora souhlasíte s těmito Podmínkami použití. Aurora je nástroj navržený k vynucení soustředění.",
+        "tSection1Title": "1. Převzetí rizika",
+        "tSection1Desc": "Aplikace Aurora používá blokování na úrovni systému ('System Blocker') a tzv. 'Hardcore mód', který ukončuje rušivé aplikace a znemožňuje vypnutí Aurory během bloku. VÝSLOVNĚ ROZUMÍTE A SOUHLASÍTE S TÍM, ŽE AURORU POUŽÍVÁTE VÝHRADNĚ NA VLASTNÍ NEBEZPEČÍ.",
+        "tSection2Title": "2. Omezení odpovědnosti",
+        "tSection2Desc": "Vývojář aplikace Aurora nenese v žádném případě odpovědnost za jakákoli ztracená data, neuloženou práci, ušlý zisk ani za žádné nepřímé, náhodné nebo následné škody vyplývající z používání nebo nemožnosti používat tuto aplikaci.",
+        "tSection3Title": "3. Férové používání a API třetích stran",
+        "tSection3Desc": "Souhlasíte s tím, že nebudete aplikaci zneužívat ani zpětně analyzovat (reverse-engineer). Funkce závislé na API třetích stran (např. Google Gemini) vyžadují, abyste dodržovali i jejich příslušné Podmínky použití.",
         "privacyTitle": "Zásady ochrany osobních údajů",
         "privacyEffective": "Datum účinnosti: 16. června 2026",
         "privacyIntro": "Vítejte v aplikaci Aurora! Vaše soukromí je pro nás nesmírně důležité. Tyto Zásady vysvětlují, jak shromažďujeme, používáme a chráníme vaše osobní údaje při používání naší aplikace.",
