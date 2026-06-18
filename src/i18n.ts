@@ -267,6 +267,7 @@ const resources = {
         "s2Item3": "Procesní data (Blocker):",
         "s2Item3Desc": "Seznam aplikací běžících na vašem počítači během Aurora bloku je zpracováván lokálně a nikdy není odesílán na naše servery.",
         "section3Title": "3. Služby třetích stran",
+        "section3Desc": "Aurora ke svému fungování využívá služby třetích stran:",
         "s3Item1": "Google Firebase:",
         "s3Item1Desc": "Slouží k ověřování a ukládání do databáze (žebříčky, seznamy přátel).",
         "s3Item2": "Google Gemini API:",
@@ -304,6 +305,7 @@ const resources = {
       },
       "footer": {
         "description": "Aplikace, která se nespokojí jen s odpočítáváním. Aktivně vás nutí soustředit se nemilosrdným blokováním všeho, co vás rozptyluje.",
+        "ready": "Připraveni na",
         "supportTitle": "Podpořte vývoj Aurory",
         "supportDesc": "Pomozte pokrýt náklady na Apple Developer Program a podepisovací certifikáty od Microsoftu. Bez nich nelze aplikaci distribuovat nativně bez bezpečnostních varování.",
         "supportBtn": "Podpořit na Ko-fi",

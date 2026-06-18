@@ -30,7 +30,9 @@ dist-ssr
 # Project Documentation
 FOCUS_KNOWLEDGE.md
 *.md
+!README.md
 
 # AI Agent directories
 .agent
 .gemini
+.agents/

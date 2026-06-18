@@ -23,9 +23,10 @@ const FeatureRow = ({ icon: Icon, title, desc, align = 'left', children }: Featu
     <div className={`flex flex-col ${isRight ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 md:gap-24 py-12 md:py-24 border-b border-white/5 last:border-0 relative`}>
       
       <motion.div 
-        initial={{ opacity: 0, x: isRight ? 50 : -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, x: isRight ? 50 : -50, filter: "blur(8px)" }}
+        whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
         viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className="flex-1 space-y-6 z-10 text-center md:text-left"
       >
         <h3 className="text-4xl md:text-6xl font-bold tracking-tight">{title}</h3>
@@ -41,10 +42,11 @@ const FeatureRow = ({ icon: Icon, title, desc, align = 'left', children }: Featu
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-focus-primary/15 rounded-full blur-3xl pointer-events-none" />
         
         <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.8, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           viewport={{ once: true, margin: "-100px" }}
-          className="w-56 h-56 rounded-[3rem] bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-md shadow-2xl relative z-10"
+          transition={{ type: "spring", duration: 0.6, bounce: 0.3, delay: 0.1 }}
+          className="w-56 h-56 rounded-[3rem] glass-card flex items-center justify-center shadow-2xl relative z-10"
         >
           <Icon className="w-24 h-24 text-white/40" />
         </motion.div>
@@ -164,7 +166,7 @@ export default function Home() {
           >
             <button
               onClick={() => setIsApiGuideOpen(true)}
-              className="mt-6 px-8 py-4 bg-focus-primary/20 border border-focus-primary/50 text-white rounded-full font-bold shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:bg-focus-primary hover:text-white transition-all duration-300 flex items-center gap-3 w-fit"
+              className="mt-6 px-8 py-4 bg-focus-primary/20 border border-focus-primary/50 text-white rounded-full font-bold shadow-glow-primary hover:bg-focus-primary hover:text-white transition-[background-color,color,box-shadow,transform] active:scale-95 duration-150 ease-out flex items-center gap-3 w-fit"
             >
               <Target className="w-5 h-5" />
               {t('apiGuide.button')}

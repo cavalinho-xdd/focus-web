@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { useState, useEffect } from 'react';
 import { Info, Download as DownloadIcon } from 'lucide-react';
 import { WindowsIcon, AppleIcon, LinuxIcon } from '../components/OSIcons';
 
-const downloadLinks = [
+const initialDownloadLinks = [
   {
     os: "Windows",
     arch: "x64",
@@ -40,6 +41,24 @@ const downloadLinks = [
 
 export default function Download() {
   const { t } = useTranslation();
+  const [links, setLinks] = useState(initialDownloadLinks);
+
+  useEffect(() => {
+    fetch("https://api.github.com/repos/cavalinho-xdd/aurora/releases/latest")
+      .then(res => res.json())
+      .then(data => {
+        if (!data.assets) return;
+        
+        setLinks(prevLinks => prevLinks.map(link => {
+          const matchedAsset = data.assets.find((asset: any) => asset.name.endsWith(link.type));
+          if (matchedAsset) {
+            return { ...link, url: matchedAsset.browser_download_url };
+          }
+          return link;
+        }));
+      })
+      .catch(err => console.error("Failed to fetch latest release:", err));
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-32 pb-20">
@@ -58,7 +77,7 @@ export default function Download() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {downloadLinks.map((link, idx) => (
+          {links.map((link, idx) => (
             <motion.a
               key={idx}
               href={link.url}
@@ -82,7 +101,7 @@ export default function Download() {
         </div>
 
 
-        <div className="bg-focus-primary/10 border border-focus-primary/20 rounded-2xl p-6 md:p-8 backdrop-blur-md text-left shadow-[0_0_30px_rgba(139,92,246,0.1)] max-w-3xl mx-auto">
+        <div className="bg-focus-primary/10 border border-focus-primary/20 rounded-2xl p-6 md:p-8 backdrop-blur-md text-left shadow-glow-primary max-w-3xl mx-auto">
           <div className="flex items-center gap-3 mb-4">
             <Info className="w-6 h-6 text-focus-primary" />
             <h3 className="text-xl font-bold text-white">{t('downloadWarning.title')}</h3>

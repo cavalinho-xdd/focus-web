@@ -7,6 +7,13 @@
   --color-focus-accent: #0EA5E9;
   
   --font-sans: 'Poppins', sans-serif;
+
+  --shadow-glow-primary: 0 0 30px rgba(139, 92, 246, 0.3);
+  --shadow-glow-primary-lg: 0 0 50px rgba(139, 92, 246, 0.4);
+  --shadow-glow-secondary: 0 0 30px rgba(236, 72, 153, 0.3);
+  --shadow-glow-secondary-lg: 0 0 50px rgba(236, 72, 153, 0.4);
+  --shadow-glow-white: 0 0 20px rgba(255, 255, 255, 0.2);
+  --shadow-glow-white-lg: 0 0 40px rgba(255, 255, 255, 0.4);
 }
 
 @layer base {
@@ -26,9 +33,10 @@
   
   .glass-card {
     /* Minimalist glass, not overly intrusive */
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(12px);
+    border-radius: 1.5rem; /* rounded-3xl standard */
   }
   
   .glow-border {

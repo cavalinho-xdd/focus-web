@@ -101,7 +101,7 @@ export default function AppDemo() {
 
   return (
     <div className="w-full max-w-2xl mx-auto my-32">
-      <div className="relative w-full h-[450px] bg-white/[0.02] backdrop-blur-xl border border-white/10 rounded-[2rem] shadow-[0_0_50px_rgba(139,92,246,0.1)] overflow-hidden flex flex-col p-6 md:p-12">
+      <div className="relative w-full h-[450px] glass-card shadow-glow-primary-lg overflow-hidden flex flex-col p-6 md:p-12" style={{ borderRadius: '2rem' }}>
         
 
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-focus-primary/50 to-transparent" />
@@ -123,7 +123,7 @@ export default function AppDemo() {
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
                 exit={{ opacity: 0, y: -20, filter: heavyBlur }} 
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
                 className="w-full flex flex-col items-center"
               >
                 <div className="text-gray-400 mb-6 text-xl md:text-2xl font-light">{t('demo.question')}</div>
@@ -146,7 +146,7 @@ export default function AppDemo() {
                 initial={{ opacity: 0, scale: 0.9, filter: heavyBlur }} 
                 animate={{ opacity: 1, scale: 1, filter: noBlur }} 
                 exit={{ opacity: 0, scale: 1.1, filter: heavyBlur }} 
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
                 className="w-full flex flex-col items-center justify-center"
               >
                 <div className="relative w-56 h-56 flex items-center justify-center mb-8">
@@ -190,7 +190,7 @@ export default function AppDemo() {
                 initial={{ opacity: 0, y: 20, filter: heavyBlur }} 
                 animate={{ opacity: 1, y: 0, filter: noBlur }} 
                 exit={{ opacity: 0, y: -20, filter: heavyBlur }} 
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
                 className="w-full h-full flex flex-col justify-end gap-6"
               >
                 <div className="text-xs font-bold text-gray-500 uppercase tracking-[0.3em] text-center absolute top-0 inset-x-0">
@@ -202,6 +202,7 @@ export default function AppDemo() {
                     <motion.div 
                       initial={{ opacity: 0, x: -20, scale: 0.95 }} 
                       animate={{ opacity: 1, x: 0, scale: 1 }} 
+                      transition={{ type: "spring", duration: 0.5, bounce: 0.3 }}
                       className="flex gap-4 items-start"
                     >
                       <div className="w-10 h-10 rounded-2xl bg-focus-primary/20 border border-focus-primary/30 flex items-center justify-center shrink-0">
@@ -219,12 +220,13 @@ export default function AppDemo() {
                     <motion.div 
                       initial={{ opacity: 0, y: 10, scale: 0.95 }} 
                       animate={{ opacity: 1, y: 0, scale: 1 }} 
+                      transition={{ type: "spring", duration: 0.5, bounce: 0.3 }}
                       className="flex gap-4 items-start self-end flex-row-reverse"
                     >
                       <div className="w-10 h-10 rounded-2xl bg-white/10 flex items-center justify-center shrink-0">
                         <User className="w-5 h-5 text-white" />
                       </div>
-                      <div className="bg-gradient-to-br from-focus-primary/30 to-focus-secondary/30 border border-focus-primary/50 shadow-[0_0_20px_rgba(236,72,153,0.2)] rounded-3xl rounded-tr-sm p-4 md:p-5 text-white text-base md:text-lg">
+                      <div className="bg-gradient-to-br from-focus-primary/30 to-focus-secondary/30 border border-focus-primary/50 shadow-glow-secondary rounded-3xl rounded-tr-sm p-4 md:p-5 text-white text-base md:text-lg">
                         {chatTyped}
                         {chatPhase === 1 && chatTyped.length < userText.length && (
                           <motion.span animate={{ opacity: [1, 0] }} transition={{ repeat: Infinity }} className="ml-1">|</motion.span>
@@ -239,6 +241,7 @@ export default function AppDemo() {
                     <motion.div 
                       initial={{ opacity: 0, x: -20, scale: 0.95 }} 
                       animate={{ opacity: 1, x: 0, scale: 1 }} 
+                      transition={{ type: "spring", duration: 0.5, bounce: 0.3 }}
                       className="flex gap-4 items-start"
                     >
                       <div className="w-10 h-10 rounded-2xl bg-focus-primary/20 border border-focus-primary/30 flex items-center justify-center shrink-0">

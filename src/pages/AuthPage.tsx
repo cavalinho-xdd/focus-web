@@ -45,8 +45,8 @@ export default function AuthPage() {
     <div className="min-h-screen bg-[#0B0A15] flex flex-col items-center justify-center p-4 relative overflow-hidden">
 
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#8B5CF6]/20 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-[#EC4899]/10 blur-[150px] rounded-full" />
+        <div className="ambient-blob-1 opacity-60 mix-blend-screen" style={{ top: '-20%', left: '-10%', width: '50%', height: '50%' }} />
+        <div className="ambient-blob-2 opacity-50 mix-blend-screen" style={{ top: 'auto', bottom: '-20%', left: 'auto', right: '-10%', width: '60%', height: '60%' }} />
       </div>
 
       <motion.div 
@@ -55,7 +55,7 @@ export default function AuthPage() {
         className="max-w-md w-full bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-md text-center z-10"
       >
         <div className="flex items-center justify-center gap-3 mb-8">
-          <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#8B5CF6] to-[#EC4899] shadow-[0_0_20px_rgba(139,92,246,0.6)]" />
+          <div className="w-5 h-5 rounded-full bg-gradient-to-br from-focus-primary to-focus-secondary shadow-glow-primary" />
           <span className="text-3xl font-bold tracking-tight text-white">aurora</span>
         </div>
 

@@ -40,7 +40,7 @@ export default function ScreenshotGallery() {
             className="flex flex-col gap-6 group"
           >
 
-            <div className={`relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 ${isPerformanceMode ? '' : 'backdrop-blur-md shadow-2xl transition-all duration-500 group-hover:shadow-[0_0_40px_rgba(139,92,246,0.3)]'}`}>
+            <div className={`relative overflow-hidden glass-card ${isPerformanceMode ? '' : 'shadow-2xl transition-all duration-500 group-hover:shadow-glow-primary'}`}>
 
               <div className="h-8 bg-black/40 border-b border-white/5 flex items-center px-4 gap-2">
                 <div className="w-2.5 h-2.5 rounded-full bg-white/10" />

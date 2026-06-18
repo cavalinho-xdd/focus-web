@@ -31,17 +31,17 @@ export default function ExtensionWelcome() {
 
   return (
     <div className="min-h-screen pt-32 pb-24 px-4 overflow-hidden relative">
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-focus-primary/20 rounded-full blur-[120px] pointer-events-none opacity-50 mix-blend-screen" />
-      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-pink-500/10 rounded-full blur-[150px] pointer-events-none opacity-30 mix-blend-screen" />
+      <div className="ambient-blob-1 opacity-50 mix-blend-screen" style={{ top: '25%', left: '25%' }} />
+      <div className="ambient-blob-2 opacity-30 mix-blend-screen" style={{ top: 'auto', bottom: '25%', left: 'auto', right: '25%' }} />
 
       <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center justify-center p-5 bg-gradient-to-br from-focus-primary/20 to-pink-500/20 rounded-full mb-8 border border-white/10 shadow-[0_0_30px_rgba(139,92,246,0.3)]">
+          <div className="inline-flex items-center justify-center p-5 bg-gradient-to-br from-focus-primary/20 to-pink-500/20 rounded-full mb-8 border border-white/10 shadow-glow-primary">
             <Check className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
@@ -53,17 +53,17 @@ export default function ExtensionWelcome() {
         </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.25, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
           className="grid md:grid-cols-3 gap-6 mb-16"
         >
           {features.map((feature, idx) => (
             <div 
               key={idx}
-              className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-colors flex flex-col items-start backdrop-blur-md hover:border-focus-primary/30 group"
+              className="glass-card p-8 hover:bg-white/10 transition-colors flex flex-col items-start hover:border-focus-primary/30 group"
             >
-              <div className="mb-6 p-4 rounded-2xl bg-black/30 border border-white/5 group-hover:scale-110 transition-transform duration-300">
+              <div className="mb-6 p-4 rounded-2xl bg-black/30 border border-white/5 group-hover:scale-110 transition-transform duration-200">
                 {feature.icon}
               </div>
               <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
@@ -75,9 +75,9 @@ export default function ExtensionWelcome() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.25, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="relative rounded-3xl p-10 md:p-14 text-center overflow-hidden border border-white/10 group"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-focus-primary/10 via-pink-500/5 to-focus-primary/10 opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
@@ -89,7 +89,7 @@ export default function ExtensionWelcome() {
             </p>
             <button 
               onClick={() => window.open('aurora://', '_self')}
-              className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-white text-black font-bold rounded-full hover:bg-gray-100 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] hover:scale-105 active:scale-95 duration-300"
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-white text-black font-bold rounded-full hover:bg-gray-100 transition-[transform,background-color,box-shadow] shadow-glow-white hover:shadow-glow-white-lg hover:scale-105 active:scale-95 duration-150 ease-out"
             >
               {t('extWelcome.openApp')}
             </button>

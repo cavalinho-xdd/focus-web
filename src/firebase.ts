@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAtGuJ10S0dzXgD0BCXI8EQOSpS63OXnvQ",
-  authDomain: "stay-aurora.firebaseapp.com",
-  projectId: "stay-aurora",
-  storageBucket: "stay-aurora.firebasestorage.app",
-  messagingSenderId: "135860160624",
-  appId: "1:135860160624:web:e378cac1bdc2c99299ccb5",
-  measurementId: "G-0QEHSFY5S2"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);

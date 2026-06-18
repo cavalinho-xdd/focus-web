@@ -140,7 +140,7 @@ export default function ApiGuideModal({ isOpen, onClose }: ApiGuideModalProps) {
                 {steps.map((_, idx) => (
                   <div 
                     key={idx} 
-                    className={`flex-1 h-full transition-all duration-300 ${idx <= currentStep ? 'bg-focus-primary shadow-[0_0_10px_rgba(139,92,246,0.8)]' : 'bg-transparent'}`}
+                    className={`flex-1 h-full transition-[background-color,box-shadow] duration-200 ${idx <= currentStep ? 'bg-focus-primary shadow-glow-primary' : 'bg-transparent'}`}
                   />
                 ))}
               </div>
@@ -156,10 +156,10 @@ export default function ApiGuideModal({ isOpen, onClose }: ApiGuideModalProps) {
                 <AnimatePresence mode="wait" custom={currentStep}>
                   <motion.div
                     key={currentStep}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    transition={{ duration: 0.3 }}
+                    initial={{ opacity: 0, scale: 0.95, x: 20 }}
+                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, x: -20 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
                     className="flex flex-col gap-6"
                   >
                     <div className="flex items-center gap-4">
@@ -196,7 +196,7 @@ export default function ApiGuideModal({ isOpen, onClose }: ApiGuideModalProps) {
                   {steps.map((_, idx) => (
                     <div 
                       key={idx} 
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === currentStep ? 'bg-focus-primary w-4' : 'bg-white/20'}`}
+                      className={`w-2 h-2 rounded-full transition-[background-color,width] duration-200 ${idx === currentStep ? 'bg-focus-primary w-4' : 'bg-white/20'}`}
                     />
                   ))}
                 </div>
@@ -204,14 +204,14 @@ export default function ApiGuideModal({ isOpen, onClose }: ApiGuideModalProps) {
                 {currentStep < steps.length - 1 ? (
                   <button
                     onClick={nextStep}
-                    className="flex items-center gap-2 px-4 py-2 md:px-6 md:py-2.5 text-sm md:text-base bg-focus-primary hover:bg-focus-secondary text-white rounded-xl font-bold transition-all shadow-[0_0_15px_rgba(139,92,246,0.3)] hover:shadow-[0_0_25px_rgba(139,92,246,0.5)]"
+                    className="flex items-center gap-2 px-4 py-2 md:px-6 md:py-2.5 text-sm md:text-base bg-focus-primary hover:bg-focus-secondary text-white rounded-xl font-bold transition-[background-color,box-shadow,transform] active:scale-95 duration-150 ease-out shadow-glow-primary hover:shadow-glow-primary-lg"
                   >
                     {t('apiGuide.next')} <ChevronRight className="w-4 h-4" />
                   </button>
                 ) : (
                   <button
                     onClick={onClose}
-                    className="flex items-center gap-2 px-4 py-2 md:px-6 md:py-2.5 text-sm md:text-base bg-green-500 hover:bg-green-400 text-white rounded-xl font-bold transition-all shadow-[0_0_15px_rgba(34,197,94,0.3)] hover:shadow-[0_0_25px_rgba(34,197,94,0.5)]"
+                    className="flex items-center gap-2 px-4 py-2 md:px-6 md:py-2.5 text-sm md:text-base bg-green-500 hover:bg-green-400 text-white rounded-xl font-bold transition-[background-color,box-shadow,transform] active:scale-95 duration-150 ease-out shadow-[0_0_15px_rgba(34,197,94,0.3)] hover:shadow-[0_0_25px_rgba(34,197,94,0.5)]"
                   >
                     {t('apiGuide.done')} <CheckCircle className="w-4 h-4" />
                   </button>

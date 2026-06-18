@@ -98,7 +98,7 @@ export default function Layout() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full right-0 mt-2 bg-[#0B0A15]/90 backdrop-blur-xl border border-white/10 rounded-2xl p-2 flex flex-col gap-1 min-w-[120px] shadow-2xl"
+                    className="absolute top-full right-0 mt-2 bg-focus-bg/90 backdrop-blur-xl border border-white/10 rounded-2xl p-2 flex flex-col gap-1 min-w-[120px] shadow-2xl"
                   >
                     <button 
                       onClick={() => changeLang('en')}
@@ -185,7 +185,7 @@ export default function Layout() {
               <Link to="/download" onClick={() => setMobileMenuOpen(false)}>
                 <motion.button 
                   whileTap={{ scale: 0.95 }}
-                  className="mt-4 px-8 py-3 rounded-full bg-focus-primary text-white font-bold text-lg shadow-[0_0_30px_rgba(236,72,153,0.3)]"
+                  className="mt-4 px-8 py-3 rounded-full bg-focus-primary text-white font-bold text-lg shadow-glow-secondary"
                 >
                   {t('nav.download')}
                 </motion.button>
@@ -216,7 +216,7 @@ export default function Layout() {
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 rounded-full bg-focus-primary text-white font-bold text-lg shadow-[0_0_40px_rgba(236,72,153,0.3)] hover:shadow-[0_0_60px_rgba(236,72,153,0.5)] transition-all"
+              className="px-8 py-4 rounded-full bg-focus-primary text-white font-bold text-lg shadow-glow-secondary hover:shadow-glow-secondary-lg transition-all"
             >
               {t('nav.download')}
             </motion.button>
@@ -276,7 +276,7 @@ export default function Layout() {
             href="https://ko-fi.com/cavalinhoxdd" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="relative z-10 px-8 py-3 rounded-full bg-focus-primary/10 hover:bg-focus-primary/20 border border-focus-primary/30 text-focus-primary font-bold text-sm transition-all whitespace-nowrap flex items-center gap-2 shadow-[0_0_20px_rgba(236,72,153,0.1)] hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]"
+            className="relative z-10 px-8 py-3 rounded-full bg-focus-primary/10 hover:bg-focus-primary/20 border border-focus-primary/30 text-focus-primary font-bold text-sm transition-all whitespace-nowrap flex items-center gap-2 shadow-glow-secondary hover:shadow-glow-secondary-lg"
           >
             <Coffee className="w-4 h-4" />
             {t('footer.supportBtn', 'Support on Ko-fi')}

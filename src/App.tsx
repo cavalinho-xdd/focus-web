@@ -13,6 +13,7 @@ import Download from './pages/Download';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import AuthPage from './pages/AuthPage';
+import ExtensionWelcome from './pages/ExtensionWelcome';
 
 /**
  * Main application component.
@@ -31,6 +32,7 @@ function App() {
           <Route path="download" element={<Download />} />
           <Route path="privacy" element={<Privacy />} />
           <Route path="terms" element={<Terms />} />
+          <Route path="extension-welcome" element={<ExtensionWelcome />} />
         </Route>
         <Route path="/auth" element={<AuthPage />} />
       </Routes>
