@@ -41,12 +41,6 @@ export default function ScreenshotGallery() {
           >
 
             <div className={`relative overflow-hidden glass-card ${isPerformanceMode ? '' : 'shadow-2xl transition-all duration-500 group-hover:shadow-glow-primary'}`}>
-
-              <div className="h-8 bg-black/40 border-b border-white/5 flex items-center px-4 gap-2">
-                <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
-                <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
-                <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
-              </div>
               <div className="relative aspect-video w-full bg-black/20 overflow-hidden">
                 <img 
                   src={s.img} 

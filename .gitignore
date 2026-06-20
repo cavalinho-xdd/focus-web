@@ -1,1 +1,29 @@
 node_modules
+dist
+dist-ssr
+*.local
+
+# Environment variables
+.env
+.env.*
+!.env.example
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Project Documentation
+FOCUS_KNOWLEDGE.md
+*.md
+!README.md
+
+# AI Agent directories
+.agent
+.gemini
+.agents/

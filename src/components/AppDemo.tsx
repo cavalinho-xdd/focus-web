@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Brain, User, Zap, Terminal } from 'lucide-react';
+import { Brain, User, Lightning, Terminal } from '@phosphor-icons/react';
 import { useTranslation } from 'react-i18next';
 import { usePerformanceMode } from './PerformanceContext';
 
@@ -108,11 +108,6 @@ export default function AppDemo() {
         <div className="absolute -top-32 -left-32 w-64 h-64 bg-focus-primary/20 rounded-full blur-[100px]" />
         
 
-        <div className="flex gap-2 items-center mb-10 absolute top-6 left-6">
-          <div className="w-3 h-3 rounded-full bg-white/10" />
-          <div className="w-3 h-3 rounded-full bg-white/10" />
-          <div className="w-3 h-3 rounded-full bg-white/10" />
-        </div>
 
         <div className="flex-1 relative flex items-center justify-center mt-6">
           <AnimatePresence mode="wait">
@@ -249,7 +244,7 @@ export default function AppDemo() {
                       </div>
                       <div className="bg-gradient-to-r from-[#0B0A15] to-focus-primary/10 border border-focus-primary/20 rounded-3xl rounded-tl-sm p-4 md:p-5 text-white">
                         <div className="flex items-center gap-2 text-green-400 font-black mb-2 tracking-wide uppercase text-sm">
-                          <Zap className="w-4 h-4 fill-green-400" /> {t('demo.xpAwarded')}
+                          <Lightning weight="fill" className="w-4 h-4 text-green-400" /> {t('demo.xpAwarded')}
                         </div>
                         <span className="text-gray-300 text-base md:text-lg">{t('demo.aiResponse')}</span>
                       </div>

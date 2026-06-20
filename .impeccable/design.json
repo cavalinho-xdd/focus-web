@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-19T20:47:00Z",
+  "title": "Design System: Aurora",
+  "extensions": {
+    "colorMeta": {
+      "primary": { "role": "primary", "displayName": "Focus Purple" },
+      "secondary": { "role": "secondary", "displayName": "Alert Magenta" },
+      "tertiary": { "role": "tertiary", "displayName": "Neon Cyan" },
+      "neutral-bg": { "role": "neutral", "displayName": "Deep Space Black" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headlines only." },
+      "body": { "displayName": "Body", "purpose": "Long-form reading." }
+    },
+    "shadows": [
+      { "name": "primary-glow", "value": "0 0 30px rgba(139, 92, 246, 0.3)", "purpose": "Active focus elements." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Used for main calls to action, utilizing a glowing border and translucent background.",
+      "html": "<button class=\"ds-btn-primary\">GET STARTED</button>",
+      "css": ".ds-btn-primary { background: rgba(139, 92, 246, 0.2); color: #ffffff; padding: 16px 32px; font-weight: 700; border: 1px solid rgba(139, 92, 246, 0.5); border-radius: 9999px; box-shadow: 0 0 30px rgba(139, 92, 246, 0.3); transition: background-color 0.15s, transform 0.15s; cursor: pointer; } .ds-btn-primary:hover { background-color: #8B5CF6; } .ds-btn-primary:active { transform: scale(0.95); }"
+    },
+    {
+      "name": "Glass Card",
+      "kind": "card",
+      "refersTo": "card-glass",
+      "description": "Standard container for content blocks.",
+      "html": "<div class=\"ds-card-glass\"><p style=\"color: #fff; margin:0\">Content inside</p></div>",
+      "css": ".ds-card-glass { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border-radius: 1.5rem; padding: 24px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Synthwave Terminal",
+    "overview": "The visual identity of Aurora is intense, focused, and neon-lit. It relies on vibrant, glowing, high-contrast elements against a deep, dark canvas to command attention and lock the user into a state of deep focus. The system explicitly rejects playful or childish designs, as well as busy and overwhelming layouts. Everything serves the hardcore nature of the application.",
+    "keyCharacteristics": [
+      "Deep space backgrounds paired with vibrant neon accents",
+      "High contrast and legible typography",
+      "Luminous depth through glowing shadows",
+      "Clean, tactile, and immersive surfaces"
+    ],
+    "rules": [
+      { "name": "The Glow Rule", "body": "Traditional black drop shadows are prohibited. Depth is exclusively communicated through colored light (glows) and glassmorphism (blurs).", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use OKLCH or hex colors that match the intense, neon-lit Synthwave Terminal aesthetic.",
+      "Do rely on glassmorphism and colored glows to separate overlapping elements.",
+      "Do keep layouts clean and focused, directing the user to a single primary action per view."
+    ],
+    "donts": [
+      "Don't use playful, childish, or overly corporate SaaS design patterns.",
+      "Don't create busy, overwhelming layouts with multiple competing calls to action.",
+      "Don't use traditional black drop shadows for elevation; always use luminous glows."
+    ]
+  }
+}

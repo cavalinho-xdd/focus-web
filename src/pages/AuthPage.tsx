@@ -53,9 +53,10 @@ export default function AuthPage() {
       </div>
 
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="max-w-md w-full bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-md text-center z-10"
+        initial={{ opacity: 0, y: 20, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+        className="max-w-md w-full bg-focus-bg border-2 border-focus-primary/30 rounded-2xl p-8 text-center z-10 shadow-[0_0_40px_rgba(139,92,246,0.1)]"
       >
         <div className="flex items-center justify-center gap-3 mb-8">
           <div className="w-5 h-5 rounded-full bg-gradient-to-br from-focus-primary to-focus-secondary shadow-glow-primary" />
@@ -69,10 +70,8 @@ export default function AuthPage() {
 
         {status === 'waiting' && (
           <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
             onClick={handleGoogleAuth}
-            className="w-full bg-white text-black font-bold py-4 px-6 rounded-xl transition-all flex justify-center items-center gap-3"
+            className="pressable w-full bg-white hover:bg-gray-200 text-black font-bold py-4 px-6 rounded-xl flex justify-center items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-focus-primary focus-visible:ring-offset-2 focus-visible:ring-offset-focus-bg"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24">
               <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
@@ -101,11 +100,11 @@ export default function AuthPage() {
                 const token = (window as any).__fallbackToken;
                 if (token) window.location.href = `aurora://auth?token=${token}`;
               }}
-              className="text-xs bg-white/10 hover:bg-white/20 text-white py-2 px-4 rounded-lg transition-colors mb-2"
+              className="pressable text-xs bg-white/10 hover:bg-white/20 text-white py-2 px-4 rounded-lg mb-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-focus-primary focus-visible:ring-offset-2 focus-visible:ring-offset-focus-bg"
             >
               Open Aurora App Manually
             </button>
-            <p className="text-xs text-gray-600 mt-2"><a href="#" onClick={() => window.location.reload()} className="underline hover:text-gray-400">Restart login</a></p>
+            <p className="text-xs text-gray-600 mt-2"><a href="#" onClick={() => window.location.reload()} className="underline hover:text-gray-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-focus-primary focus-visible:ring-offset-2 focus-visible:ring-offset-focus-bg rounded-sm">Restart login</a></p>
           </div>
         )}
 
@@ -115,7 +114,7 @@ export default function AuthPage() {
             <p className="text-xs">{errorMsg}</p>
             <button 
               onClick={() => setStatus('waiting')}
-              className="mt-4 text-xs underline hover:text-white"
+              className="mt-4 text-xs underline hover:text-white transition-transform duration-150 active:scale-[0.97] ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-focus-primary focus-visible:ring-offset-2 focus-visible:ring-offset-focus-bg rounded-sm"
             >
               Try again
             </button>
