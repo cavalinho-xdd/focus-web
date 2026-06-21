@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -146,12 +147,12 @@ export default function About() {
             {t('aboutNew.heroDesc')}
           </p>
           <div className="hero-text-stagger pt-6">
-            <button className="bg-gradient-to-r from-focus-primary to-focus-secondary text-white font-bold rounded-full pl-8 pr-2 py-2 flex items-center gap-6 group shadow-[0_0_30px_rgba(139,92,246,0.3)] hover:shadow-[0_0_50px_rgba(139,92,246,0.5)] hover:scale-105 transition duration-200">
+            <Link to="/download" className="bg-gradient-to-r from-focus-primary to-focus-secondary text-white font-bold rounded-full pl-8 pr-2 py-2 flex items-center gap-6 group shadow-[0_0_30px_rgba(139,92,246,0.3)] hover:shadow-[0_0_50px_rgba(139,92,246,0.5)] hover:scale-105 transition duration-200 w-fit">
               {t('nav.download')}
               <span className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
                 <ArrowRight weight="bold" className="w-4 h-4" />
               </span>
-            </button>
+            </Link>
           </div>
         </div>
         
@@ -310,11 +311,11 @@ export default function About() {
               {t('aboutNew.openSourceDesc')}
             </p>
             <div className="flex items-center gap-4 pt-4">
-              <a href="#" className="flex items-center gap-2 text-focus-primary font-bold hover:text-white transition-colors">
+              <a href="https://github.com/cavalinho-xdd/aurora" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-focus-primary font-bold hover:text-white transition-colors">
                 <GithubLogo weight="bold" className="w-6 h-6" />
                 {t('aboutNew.viewGithub')}
               </a>
-              <a href="#" className="flex items-center gap-2 bg-[#FF5E5B] text-white px-6 py-3 rounded-full font-bold hover:bg-[#FF4A47] transition-colors shadow-[0_0_20px_rgba(255,94,91,0.3)]">
+              <a href="https://ko-fi.com/cavalinhoxdd" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-[#FF5E5B] text-white px-6 py-3 rounded-full font-bold hover:bg-[#FF4A47] transition-colors shadow-[0_0_20px_rgba(255,94,91,0.3)]">
                 <Coffee weight="bold" className="w-5 h-5" />
                 {t('aboutNew.supportKofi')}
               </a>
